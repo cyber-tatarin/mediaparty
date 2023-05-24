@@ -1,248 +1,276 @@
-const swiper = new Swiper(".swiper", {
-  direction: "vertical",
-  mousewheel: {
-    sensitivity: 1,
-  },
-  autoHeight: true,
-  slidesPerView: 3,
-  allowTouchMove: false,
-  noSwiping: true,
-  noSwipingClass: "swiper-slide",
-  preventInteractionOnTransition: true,
-  pagination: {
-    el: ".swiper-pagination",
-  },
-  watchOverflow: true,
-  slidesOffsetAfter: 0,
-  touchRatio: 0.33,
-  speed: 0,
-});
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
 
-const swiper2 = new Swiper(".smile-swiper", {
-  direction: "vertical",
-  // init: false,
-  mousewheel: {
-    sensitivity: 1,
-  },
-  allowTouchMove: false,
-  noSwiping: true,
-  noSwipingClass: "swiper-slide",
-  preventInteractionOnTransition: true,
-  autoHeight: true,
-  slidesPerView: 1,
-  pagination: {
-    el: ".swiper-pagination",
-  },
-  effect: "fade",
-  fadeEffect: {
-    crossFade: true,
-  },
-  watchOverflow: true,
-  speed: 0,
-});
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/test.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="first-screen">
+        <div class="sliders">
+          <div class="slide-line">
+            <p class="first-line">
+              &nbspMEDIA МЕДИА MEDIA MEДIA MEDIA МЕДИА MEDIA MEДIA MEDIA МЕДИА
+              MEDIA MEДIA MEDIA МЕДИА MEDIA MEДIA
+            </p>
+          </div>
+          <div class="slide-line">
+            <p class="second-line">
+              &nbspPARTY PARTY PARTY PARTY PARTY PARTY PARTY PARTY PARTY PARTY
+              PARTY PARTY PARTY PARTY PARTY PARTY
+            </p>
+          </div>
+          <div class="slide-line">
+            <p class="third-line">
+              &nbspMINSK МИНСК МИНСК MINSK МИНСК MINSK МИНСК МИНСК MINSK МИНСК
+              MINSK МИНСК МИНСК MINSK МИНСК MINSK МИНСК МИНСК MINSK МИНСК
+            </p>
+          </div>
+        </div>
 
-swiper.controller.control = swiper2;
-swiper2.controller.control = swiper;
+        <div class="section">
+          <div class="arrows">
+            <div class="arrow-left"></div>
+            <div class="arrow-center"></div>
+          </div>
+          <div class="video"></div>
+          <div class="flex-bottom">
+            <!-- <div class="button">
+              <a href="#" class="buy-ticket">Купить билет</a>
+            </div> -->
+            <!-- <div class="tabs">
+              <div class="tabs__container">
+                <div class="tabs__logo">MEDIA<br />PARTY</div>
+                <ul class="tabs__items">
+                  <li class="tabs__item">
+                    <a href="#">Главная</a>
+                  </li>
+                  <li class="tabs__item">
+                    <a href="#">Что будет?</a>
+                  </li>
+                  <li class="tabs__item">
+                    <a href="#">Для кого?</a>
+                  </li>
+                </ul>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
 
-let currentSlide = swiper.activeIndex;
+      <div class="button">
+        <a href="#" class="buy-ticket">Купить билет</a>
+      </div>
+      <!-- <div class="tabs">
+        <div class="tabs__container">
+          <div class="tabs__logo">MEDIA<br />PARTY</div>
+          <div class="tabs__items">
+            <a href="#" class="tabs__item"> Главная </a>
+            <a href="#" class="tabs__item"> Что будет? </a>
+            <a href="#" class="tabs__item"> Для кого? </a>
+          </div>
+        </div>
+      </div> -->
 
-let clientX;
-let clientY;
+      <div class="main-swiper">
+        <!-- <div class="above-screen"></div> -->
+        <div class="swiper-wrapper main-wrapper">
+          <div class="swiper-slide main-slide">
+            <div class="pop-up">
+              <div class="pop-up__inner">
+                <div class="pop-up__content">
+                  <div class="flex-wrapper">
+                    <div class="pop-up-titles">
+                      <span class="pop-up__title">9 ИЮНЯ 2023</span>
+                      <span class="pop-up__title_right">Пятница</span>
+                    </div>
 
-let deltaX;
-let deltaY;
+                    <div class="accents">
+                      <div class="accent accent-left">
+                        event-пространство Бетон
+                      </div>
+                      <div class="accent accent-right">20:00 — 00:00</div>
+                    </div>
 
-let slideCounter = 0;
+                    <div class="smile-swiper smile-swiper_hidden">
+                      <div class="swiper-wrapper smile-wrapper">
+                        <div class="swiper-slide">
+                          <div class="slider__container">
+                            <img src="/images/face.png" alt="face" />
+                          </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="slider__container">
+                            <img src="/images/hand.png" alt="face" />
+                          </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="slider__container">
+                            <!-- <img src="/images/face.png" alt="face" /> -->
+                          </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="slider__container"></div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="slider__container"></div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="slider__container">
+                            <img src="/images/face.png" alt="face" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
-swiper.on("activeIndexChange", (event) => {
-  console.log("slideCounter = ", slideCounter);
-  console.log("swiperActiveSlide = ", swiper.activeIndex);
-  if (swiper.activeIndex === 4) {
-    currentSlide = swiper.activeIndex;
+                    <div class="swiper swiper-inner swiper-inner_hidden">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide pop-up-description">
+                          Приветствуем вас на<br />вечеринке "StarStudded
+                          Night"<br />
+                          - событии, специально
+                        </div>
+                        <div class="swiper-slide pop-up-description">
+                          созданном для медийных личностей,<br />включая
+                          предпринимателей,<br />ведущих, артистов и блоггеров.
+                        </div>
+                        <div class="swiper-slide pop-up-description">
+                          Погрузитесь в мир гламура и<br />известности на самой
+                          горячей<br />
+                          вечеринке сезона!
+                        </div>
+                        <div class="swiper-slide pop-up-description">
+                          Приветствуем вас на вечеринке<br />"StarStudded Night"
+                          - событии,<br />
+                          специально
+                        </div>
+                        <div class="swiper-slide pop-up-description">
+                          созданном для медийных личностей,<br />включая
+                          предпринимателей,<br />
+                          ведущих, артистов и блоггеров.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex-wrapper wrapper-to-change wrapper_active">
+                    <div class="button__container item_hidden">
+                      <a href="#" class="buy-ticket">Купить билет</a>
+                    </div>
+                    <img
+                      class="smiles-img smiles_hidden"
+                      src="/images/smiles.png"
+                      alt="smiles"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <main class="main main_hidden">
+        <div class="section__titles">
+          <p class="main-title">ЧТО БУДЕТ?</p>
+          <p class="second-title">Это будет что-то!</p>
+        </div>
+        <div class="main__container">
+          <div class="main__item">
+            <div class="main__item_bg bg_1">
+              <!-- <div class="main__item_img img_1"></div> -->
+              <img src="/images/bg_1.png" alt="" class="main__item_img" />
+            </div>
 
-    if (document.querySelector(".smiles-img")) {
-      document.querySelector(".smiles-img").style.opacity = "0";
-    }
-  }
-});
+            <div class="main__item_title item_title_1">
+              Сильный<br />нетворкинг
+            </div>
 
-document.addEventListener("touchstart", (event) => {
-  clientX = event.touches[0].clientX;
-  clientY = event.touches[0].clientY;
-});
+            <div class="main__item_text item_text_1">
+              На вечеринке будут сильнейшие медийные люди Беларуси. Одно
+              знакомство или сделка полностью окупит Ваш билет
+            </div>
+          </div>
+          <div class="main__item">
+            <div class="main__item_bg bg_2">
+              <!-- <div class="main__item_img img_2"></div> -->
+              <img src="/images/bg_2.png" alt="" class="main__item_img" />
+            </div>
 
-document.addEventListener("touchend", (event) => {
-  deltaX = event.changedTouches[0].clientX - clientX;
-  deltaY = event.changedTouches[0].clientY - clientY;
+            <div class="main__item_title item_title_2">Крутая музыка</div>
 
-  if (deltaY) {
-    console.log("touched", swiper.activeIndex, slideCounter);
-    function findTop(element) {
-      let rec = document.querySelector(element).getBoundingClientRect();
+            <div class="main__item_text item_text_2">
+              Мы подготовили плейлист, который поможет раскрепоститься и ни о
+              чем не думать
+            </div>
+          </div>
+          <div class="main__item">
+            <div class="main__item_bg bg_3">
+              <!-- <div class="main__item_img img_3"></div> -->
+              <img src="/images/bg_3.png" alt="" class="main__item_img" />
+            </div>
 
-      return rec.top;
-    }
+            <div class="main__item_title item_title_3">
+              Конкурсы и<br />сюжетные игры
+            </div>
 
-    if (slideCounter === 0) {
-      document.querySelector(".smiles-img").classList.add("smiles_hidden");
-    }
-  }
+            <div class="main__item_text item_text_3">
+              Сценарий прописан на все 4 часа. Поэтому никто не останется без
+              новых знакомств и улыбки до ушей
+            </div>
+          </div>
+          <div class="main__item">
+            <div class="main__item_bg bg_4">
+              <!-- <div class="main__item_img img_4"></div> -->
+              <img src="/images/bg_4.png" alt="" class="main__item_img" />
+            </div>
 
-  if (deltaY < 0) {
-    console.log("down", slideCounter, swiper.activeIndex);
-    document.querySelector(".smiles-img").classList.remove("smiles_hidden");
-    if (document.querySelector(".pop-up").classList.contains("pop-up-static")) {
-      console.log("aaa");
-      document.querySelector(".smiles-img").classList.add("smiles_hidden");
-    }
+            <div class="main__item_title item_title_4">
+              Шикарные<br />фотозоны
+            </div>
 
-    if (slideCounter > 3) {
-      slideCounter = 3;
-    }
+            <div class="main__item_text item_text_4">
+              Мы позаботимся, чтобы у Вас остались качественные фотографии после
+              вечеринки
+            </div>
+          </div>
+          <div class="main__item">
+            <div class="main__item_bg bg_5">
+              <!-- <div class="main__item_img img_5"></div> -->
+              <img src="/images/bg_5.png" alt="" class="main__item_img" />
+            </div>
 
-    if (slideCounter === 0) {
-      document
-        .querySelector(".smile-swiper")
-        .classList.remove("smile-swiper_hidden");
-      document.querySelector(".smile-swiper").style.opacity = 1;
-      document.querySelector(".smile-swiper").style.transitionDelay = "0.3s";
-      swiper2.init();
+            <div class="main__item_title item_title_5">Дресс-код</div>
 
-      document
-        .querySelector(".pop-up__inner")
-        .classList.add("pop-up__inner_active");
-      document.querySelector(".video").style.opacity = "0";
-      document.querySelector(".button").style.opacity = "0";
-      document
-        .querySelector(".swiper-inner")
-        .classList.remove("swiper-inner_hidden");
-      document
-        .querySelector(".swiper-inner")
-        .classList.add("swiper-inner_active");
-    }
-    if (slideCounter === 3) {
-      document.querySelector("body").style.overflow = "visible";
-      // swiper.disable();
-      document.querySelector(".main").classList.remove("main_hidden");
-      // document
-      //   .querySelector(".section__titles")
-      //   .classList.add("section__titles_return");
-      document
-        .querySelector(".button__container")
-        .classList.add("button-return");
-      document.querySelector(".smiles-img").classList.add("smiles_hidden");
-      document
-        .querySelector(".pop-up__inner")
-        .classList.add("pop-up__inner_no-radius");
-      document.querySelector(".pop-up").classList.add("pop-up_full-screen");
-      document
-        .querySelector(".first-screen")
-        .classList.add("first-screen_hidden");
-      document.querySelector(".pop-up").classList.add("pop-up-static");
-    }
-    if (slideCounter < 3) {
-      // document
-      //   .querySelector(".section__titles")
-      //   .classList.remove("section__titles_return");
-    }
-    if (slideCounter !== 0) swiper.slideNext();
+            <div class="main__item_text item_text_5">
+              Разрешены только черные и белые вещи. Можно добавить яркий
+              акцентный цвет с помощью аксессуаров
+            </div>
+          </div>
+        </div>
+        <div class="photos">
+          <img class="photo__item" src="/images/photo_1.png" />
+          <img class="photo__item" src="/images/photo_2.png" />
+          <img class="photo__item" src="/images/photo_3.png" />
+          <img class="photo__item" src="/images/photo_4.png" />
+        </div>
+      </main>
+    </div>
 
-    slideCounter++;
-  }
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-  if (deltaY > 0) {
-    console.log("up", slideCounter, swiper.activeIndex);
-    if (
-      !document
-        .querySelector(".pop-up__inner")
-        .classList.contains("pop-up__inner_active")
-    ) {
-      console.log("t");
-      document.querySelector(".smile-swiper").style.opacity = 0;
-      document.querySelector(".smile-swiper").style.transitionDelay = "0s";
-      // document.querySelector(".smiles-img").classList.add("smiles_hidden");
-    }
-    if (swiper.activeIndex < 3 && slideCounter > 0) {
-      // document.querySelector(".above-screen").style.display = "none";
-      // console.log(swiper.init);
-      if (!swiper.init) swiper.init();
-      // swiper.slidePrev();
-      if (findTop(".main-slide") === 0) {
-        console.log("c = 0");
-        // document
-        //   .querySelector(".section__titles")
-        //   .classList.remove("section__titles_return");
-
-        document.querySelector(".main").classList.add("main_hidden");
-
-        document.querySelector("body").style.overflow = "hidden";
-
-        document
-          .querySelector(".button__container")
-          .classList.remove("button-return");
-        document.querySelector(".smiles-img").classList.remove("smiles_hidden");
-        document
-          .querySelector(".pop-up__inner")
-          .classList.remove("pop-up__inner_no-radius");
-        document
-          .querySelector(".pop-up")
-          .classList.remove("pop-up_full-screen");
-        document
-          .querySelector(".first-screen")
-          .classList.remove("first-screen_hidden");
-        // setTimeout(() => {
-        document.querySelector(".pop-up").classList.remove("pop-up-static");
-      }
-    }
-
-    if (slideCounter === 1) {
-      if (slideCounter > 0) slideCounter--;
-      console.log("destroy");
-      document.querySelector(".smile-swiper").style.opacity = 0;
-      document.querySelector(".smile-swiper").style.transitionDelay = "0s";
-      document
-        .querySelector(".pop-up__inner")
-        .classList.remove("pop-up__inner_active");
-      document.querySelector(".video").style.opacity = "1";
-      document.querySelector(".button").style.opacity = "1";
-      document
-        .querySelector(".swiper-inner")
-        .classList.add("swiper-inner_hidden");
-      document
-        .querySelector(".swiper-inner")
-        .classList.remove("swiper-inner_active");
-      document.querySelector(".smiles-img").classList.add("smiles_hidden");
-    } else {
-      if (slideCounter > 4) slideCounter = 4;
-      if (slideCounter < 4 && findTop(".main-slide") === 0) swiper.slidePrev();
-      if (slideCounter > 0 && findTop(".main-slide") === 0) slideCounter--;
-    }
-  }
-});
-
-const lazyImages = document.querySelectorAll(".bg_5");
-
-const callback = (entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      document.querySelector(".photos").classList.add("photos_full-screen");
-      document
-        .querySelector(".main__container")
-        .classList.add("main__container_full-screen");
-      document
-        .querySelector(".section__titles")
-        .classList.add("section__titles_full-screen");
-      entry.target.src = entry.target.dataset.src;
-      observer.unobserve(entry.target);
-    }
-  });
-};
-
-const options = {
-  rootMargin: "0px 0px -210px 0px",
-  threshold: 0,
-};
-
-const observer = new IntersectionObserver(callback, options);
-
-lazyImages.forEach((image) => observer.observe(image));
+    <script src="test.js"></script>
+  </body>
+</html>

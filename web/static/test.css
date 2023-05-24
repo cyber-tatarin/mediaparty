@@ -27,6 +27,7 @@ a {
 }
 
 a:hover {
+  cursor: pointer;
   text-decoration: none;
 }
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -37,7 +38,7 @@ body {
   font-family: "Inter", sans-serif;
   font-family: "Montserrat", sans-serif;
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 60px);
 }
 
 .container {
@@ -141,6 +142,8 @@ body {
 }
 
 .main__item_title {
+  font-weight: 700;
+  font-size: 14px;
   text-align: center;
   width: fit-content;
   position: absolute;
@@ -155,14 +158,16 @@ body {
 }
 
 .main__item_text {
+  font-weight: 600;
+  font-size: 12px;
   text-align: center;
-  margin: 0 24px;
+  /* margin: 0 24px; */
   margin-top: 36px;
   color: rgba(0, 0, 0, 0.6);
 }
 
 .item_title_1 {
-  top: 52px;
+  top: 46px;
 }
 
 .item_title_2 {
@@ -182,7 +187,7 @@ body {
 }
 
 .item_text_1 {
-  margin-top: 36px;
+  margin-top: 46px;
 }
 
 .item_text_2 {
@@ -216,7 +221,7 @@ body {
 }
 
 .above-screen {
-  z-index: 10;
+  z-index: 2;
   position: absolute;
   top: 0;
   left: 0;
@@ -285,7 +290,7 @@ body {
 }
 
 .button-return {
-  transform: translateY(-24px);
+  transform: translateY(-84px);
 }
 
 .section {
@@ -497,8 +502,13 @@ body {
 }
 
 .button {
+  z-index: 3;
+  position: absolute;
+  bottom: 82px;
+  right: 0;
+  left: 0;
   transition: 0.5s ease-out;
-  margin: 0 12px;
+  margin: 0 20px;
   margin-bottom: 20px;
   /* margin-top: 32px; */
 }
@@ -509,9 +519,18 @@ body {
   /* margin-bottom: 32px; */
 }
 
+.flex-bottom {
+  height: 150px;
+}
+
 .tabs {
+  transition: 0.5s ease-out;
+  z-index: 3;
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  right: 0;
   margin: 0 12px;
-  margin-bottom: 12px;
   min-height: 50px;
   padding: 4px;
   background: rgba(0, 0, 0, 0.75);
@@ -550,6 +569,8 @@ body {
 }
 
 .tabs__item {
+  color: rgba(255, 255, 255, 0.8);
+
   width: 100%;
   display: flex;
   justify-content: center;
@@ -663,6 +684,7 @@ body {
 }
 
 .wrapper_active {
+  z-index: 10;
   position: absolute;
   bottom: 0px;
   left: 0;
@@ -723,6 +745,10 @@ body {
   .pop-up__title_right {
     font-size: 8px;
   }
+}
+
+.swiper-vertical {
+  touch-action: pan-y;
 }
 
 .swiper {

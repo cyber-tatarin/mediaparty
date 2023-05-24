@@ -214,7 +214,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="{{ url_for('static', filename='test.css') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='test.css') }}"
+    />
   </head>
   <body>
     <div class="container">
@@ -250,7 +253,7 @@
             <div class="button">
               <a href="#" class="buy-ticket">Купить билет</a>
             </div>
-            <div class="tabs">
+            <!-- <div class="tabs">
               <div class="tabs__container">
                 <div class="tabs__logo">MEDIA<br />PARTY</div>
                 <ul class="tabs__items">
@@ -265,7 +268,7 @@
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -294,12 +297,18 @@
                       <div class="swiper-wrapper smile-wrapper">
                         <div class="swiper-slide">
                           <div class="slider__container">
-                            <img src="{{ url_for('static', filename='images/face.png') }}" alt="face" />
+                            <img
+                              src="{{ url_for('static', filename='images/face.png') }}"
+                              alt="face"
+                            />
                           </div>
                         </div>
                         <div class="swiper-slide">
                           <div class="slider__container">
-                            <img src="{{ url_for('static', filename='images/hand.png') }}" alt="face" />
+                            <img
+                              src="{{ url_for('static', filename='images/hand.png') }}"
+                              alt="face"
+                            />
                           </div>
                         </div>
                         <div class="swiper-slide">
@@ -315,7 +324,10 @@
                         </div>
                         <div class="swiper-slide">
                           <div class="slider__container">
-                            <img src="{{ url_for('static', filename='images/face.png') }}" alt="face" />
+                            <img
+                              src="{{ url_for('static', filename='images/face.png') }}"
+                              alt="face"
+                            />
                           </div>
                         </div>
                       </div>
@@ -375,7 +387,11 @@
           <div class="main__item">
             <div class="main__item_bg bg_1">
               <!-- <div class="main__item_img img_1"></div> -->
-              <img src="{{ url_for('static', filename='images/bg_1.png') }}" alt="" class="main__item_img" />
+              <img
+                src="{{ url_for('static', filename='images/bg_1.png') }}"
+                alt=""
+                class="main__item_img"
+              />
             </div>
 
             <div class="main__item_title item_title_1">Сильный нетворкинг</div>
@@ -388,7 +404,11 @@
           <div class="main__item">
             <div class="main__item_bg bg_2">
               <!-- <div class="main__item_img img_2"></div> -->
-              <img src="{{ url_for('static', filename='images/bg_2.png') }}" alt="" class="main__item_img" />
+              <img
+                src="{{ url_for('static', filename='images/bg_2.png') }}"
+                alt=""
+                class="main__item_img"
+              />
             </div>
 
             <div class="main__item_title item_title_2">Крутая музыка</div>
@@ -401,7 +421,11 @@
           <div class="main__item">
             <div class="main__item_bg bg_3">
               <!-- <div class="main__item_img img_3"></div> -->
-              <img src="{{ url_for('static', filename='images/bg_3.png') }}" alt="" class="main__item_img" />
+              <img
+                src="{{ url_for('static', filename='images/bg_3.png') }}"
+                alt=""
+                class="main__item_img"
+              />
             </div>
 
             <div class="main__item_title item_title_3">
@@ -416,7 +440,11 @@
           <div class="main__item">
             <div class="main__item_bg bg_4">
               <!-- <div class="main__item_img img_4"></div> -->
-              <img src="{{ url_for('static', filename='images/bg_4.png') }}" alt="" class="main__item_img" />
+              <img
+                src="{{ url_for('static', filename='images/bg_4.png') }}"
+                alt=""
+                class="main__item_img"
+              />
             </div>
 
             <div class="main__item_title item_title_4">
@@ -431,7 +459,11 @@
           <div class="main__item">
             <div class="main__item_bg bg_5">
               <!-- <div class="main__item_img img_5"></div> -->
-              <img src="{{ url_for('static', filename='images/bg_5.png') }}" alt="" class="main__item_img" />
+              <img
+                src="{{ url_for('static', filename='images/bg_5.png') }}"
+                alt=""
+                class="main__item_img"
+              />
             </div>
 
             <div class="main__item_title item_title_5">Дресс-код</div>
@@ -443,10 +475,22 @@
           </div>
         </div>
         <div class="photos">
-          <img class="photo__item" src="{{ url_for('static', filename='images/photo_1.png') }}" />
-          <img class="photo__item" src="{{ url_for('static', filename='images/photo_2.png') }}" />
-          <img class="photo__item" src="{{ url_for('static', filename='images/photo_3.png') }}" />
-          <img class="photo__item" src="{{ url_for('static', filename='images/photo_3.png') }}" />
+          <img
+            class="photo__item"
+            src="{{ url_for('static', filename='images/photo_1.png') }}"
+          />
+          <img
+            class="photo__item"
+            src="{{ url_for('static', filename='images/photo_2.png') }}"
+          />
+          <img
+            class="photo__item"
+            src="{{ url_for('static', filename='images/photo_3.png') }}"
+          />
+          <img
+            class="photo__item"
+            src="{{ url_for('static', filename='images/photo_3.png') }}"
+          />
         </div>
       </main>
     </div>
@@ -456,4 +500,3 @@
     <script src="{{ url_for('static', filename='test.js') }}"></script>
   </body>
 </html>
-
