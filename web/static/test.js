@@ -52,9 +52,13 @@ let clientY;
 let deltaX;
 let deltaY;
 
+let touch = false;
+
 let isActive = false;
 
 let slideCounter = 0;
+
+let scrollActive = false;
 
 function findTop(element) {
   let rec = document.querySelector(element).getBoundingClientRect();
@@ -62,48 +66,101 @@ function findTop(element) {
   return rec.top;
 }
 
+var touchDevice =
+  navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
+// console.log(touchDevice);
+
+let scrollCounter = 0;
+
 swiper.on("activeIndexChange", (event) => {
   console.log("slideCounter = ", slideCounter);
   console.log("swiperActiveSlide = ", swiper.activeIndex);
-  if (swiper.activeIndex === 4) {
-    // currentSlide = swiper.activeIndex;
 
-    if (document.querySelector(".smiles-img")) {
-      document.querySelector(".smiles-img").style.opacity = "0";
-    }
+  if (scrollCounter === 0 && slideCounter === 0 && !touchDevice) {
+    scrollCounter++;
+    swiper.slidePrev();
+    document
+      .querySelector(".smile-swiper")
+      .classList.remove("smile-swiper_hidden");
+    document.querySelector(".smile-swiper").style.opacity = 1;
+    document.querySelector(".smile-swiper").style.transitionDelay = "0.3s";
+    swiper2.init();
+
+    document
+      .querySelector(".pop-up__inner")
+      .classList.add("pop-up__inner_active");
+    document.querySelector(".video").style.opacity = "0";
+    document.querySelector(".button").style.opacity = "0";
+    // document.querySelector(".tabs").style.opacity = "0";
+    document
+      .querySelector(".swiper-inner")
+      .classList.remove("swiper-inner_hidden");
+    document
+      .querySelector(".swiper-inner")
+      .classList.add("swiper-inner_active");
   }
+
+  if (swiper.activeIndex === 2 && !touchDevice) {
+    swiper.disable();
+    swiper2.disable();
+    scrollActive = true;
+    // document
+    //   .querySelector(".above-screen")
+    //   .classList.remove("above-screen_hidden");
+    setTimeout(() => {
+      document.querySelector("body").style.overflow = "visible";
+    }, 500);
+    document.querySelector(".main").classList.remove("main_hidden");
+  }
+
+  // if (swiper.activeIndex === 4) {
+  //   if (document.querySelector(".smiles-img")) {
+  //     document.querySelector(".smiles-img").style.opacity = "0";
+  //   }
+  // }
 });
 
 document.addEventListener("scroll", (event) => {
+  if (scrollActive && !touchDevice) {
+    document.querySelector(".button__container").classList.add("button-return");
+    document.querySelector(".smiles-img").classList.add("smiles_hidden");
+    document
+      .querySelector(".pop-up__inner")
+      .classList.add("pop-up__inner_no-radius");
+    document.querySelector(".pop-up").classList.add("pop-up_full-screen");
+    document
+      .querySelector(".first-screen")
+      .classList.add("first-screen_hidden");
+    document.querySelector(".pop-up").classList.add("pop-up-static");
+  }
   if (isActive) {
-    console.log("active");
+    // console.log("active", findTop("#bg_3"));
     if (
       document.querySelector(".photos").classList.contains("photos_full-screen")
     ) {
-      if (findTop("#bg_5") > 30) {
-        console.log("hsafhksadjf");
-
-        document.querySelector("body").style.overflow = "hidden";
-        console.log("AAAAAAAA");
-        document
-          .querySelector(".photos")
-          .classList.remove("photos_full-screen");
-        document
-          .querySelector(".main__container")
-          .classList.remove("main__container_full-screen");
-        // document.querySelector("#bg_5").style.transition = "0s ease-out";
-        document.querySelector("#bg_5").style.transform = `translateY(0px)`;
-        document.querySelector(".photos").style.transform = `translateY(0px)`;
-        items = document.querySelectorAll(".main__item_to-hide");
-        items.forEach((el) => {
-          el.style.opacity = 1;
-        });
-        setTimeout(() => {
-          document.querySelector("body").style.overflow = "visible";
-          isActive = false;
-          observer.observe(bg5);
-        }, 500);
-      }
+      // if (findTop("#bg_3") > -120) {
+      //   // console.log("hsafhksadjf");
+      //   document.querySelector("body").style.overflow = "hidden";
+      //   // console.log("AAAAAAAA");
+      //   document
+      //     .querySelector(".photos")
+      //     .classList.remove("photos_full-screen");
+      //   document
+      //     .querySelector(".main__container")
+      //     .classList.remove("main__container_full-screen");
+      //   // document.querySelector("#bg_5").style.transition = "0s ease-out";
+      //   document.querySelector("#bg_5").style.transform = `translateY(0px)`;
+      //   document.querySelector(".photos").style.transform = `translateY(0px)`;
+      //   items = document.querySelectorAll(".main__item_to-hide");
+      //   items.forEach((el) => {
+      //     el.style.opacity = 1;
+      //   });
+      //   setTimeout(() => {
+      //     document.querySelector("body").style.overflow = "visible";
+      //     isActive = false;
+      //     observer.observe(bg5);
+      //   }, 500);
+      // }
     }
   }
 });
@@ -118,6 +175,7 @@ document.addEventListener("touchend", (event) => {
   deltaY = event.changedTouches[0].clientY - clientY;
 
   if (deltaY) {
+    touch = true;
     console.log("touched", swiper.activeIndex, slideCounter);
 
     if (slideCounter === 0) {
@@ -159,19 +217,11 @@ document.addEventListener("touchend", (event) => {
         .classList.add("swiper-inner_active");
     }
     if (slideCounter === 3) {
-      // document.querySelector(".tabs").style.opacity = 0;
-      // document.querySelector(".tabs").style.transform = "translateY(100px)";
-      // swiper.allowTouchMove = true;
-      // swiper.disable();
-      // swiper2.disable();
-      // document.querySelector(".swiper").style.position = "static";
-      // document.querySelector(".swiper").style.paddingTop = "140px";
-      document.querySelector("body").style.overflow = "visible";
-      // swiper.disable();
+      setTimeout(() => {
+        document.querySelector("body").style.overflow = "visible";
+      }, 500);
+
       document.querySelector(".main").classList.remove("main_hidden");
-      // document
-      //   .querySelector(".section__titles")
-      //   .classList.add("section__titles_return");
       document
         .querySelector(".button__container")
         .classList.add("button-return");
@@ -285,97 +335,66 @@ document.addEventListener("touchend", (event) => {
 
 const bg5 = document.querySelector(".photos");
 
+const options2 = {
+  rootMargin: "-20px 0px 0px 0px",
+  threshold: 0,
+};
+const observer2 = new IntersectionObserver((entries, observer2) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      console.log("SECOND OBSERVER");
+      const padding = window.innerHeight / 2;
+      let scroll2 = new SmoothScroll('a[href*="#"]', {
+        speed: 500,
+        offset: 20,
+        // easing: "easeOutQuad",
+      });
+      // document.querySelector("body").style.backgroundColor = "#ffffff";
+      // document.querySelector("body").style.overflow = "hidden";
+      setTimeout(() => {
+        scroll2.animateScroll(document.querySelector(".main__container"));
+
+        document
+          .querySelector(".photos")
+          .classList.remove("photos_full-screen");
+        document
+          .querySelector(".main__container")
+          .classList.remove("main__container_full-screen");
+        // document.querySelector("body").style.overflow = "visible";
+      }, 100);
+      entry.target.src = entry.target.dataset.src;
+      observer2.unobserve(entry.target);
+      setTimeout(() => {
+        observer.observe(bg5);
+      }, 800);
+    }
+  });
+}, options2);
+
 const callback = (entries, observer) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      document.querySelector("body").style.overflow = "hidden";
-      // console.log(window.innerHeight);
-      const offset = window.innerHeight - 230;
-
-      document.querySelector(".photos").style.transform = `translateY(${
-        -offset - 330
-      }px)`;
-      document.querySelector(
-        "#bg_5"
-      ).style.transform = `translateY(${-offset}px)`;
-      const items = document.querySelectorAll(".main__item_to-hide");
-      items.forEach((el) => {
-        el.style.opacity = 0;
+      console.log("FIRST OBSERVER");
+      let scroll = new SmoothScroll('a[href*="#"]', {
+        speed: 500,
+        offset: 10,
+        // easing: "easeOutQuad",
       });
-      // document.querySelector("#bg_5").style.backgroundColor = "#ffffff";
-      document.querySelector("#bg_5").style.transition = "0.5s ease-out";
-      setTimeout(() => {
-        document.querySelector("body").style.overflow = "visible";
-        isActive = true;
-      }, 500);
-
-      // const titles = document.querySelector(".section__titles");
-
-      // const options2 = {
-      //   rootMargin: "100px 0px 100px 0px",
-      //   threshold: 0,
-      // };
-
-      // const observer = new IntersectionObserver((entries, observer) => {
-      //   entries.forEach((entry) => {
-      //     if (entry.isIntersecting) {
       // document.querySelector("body").style.overflow = "hidden";
-      // console.log("AAAAAAAA");
-      // document.querySelector(".photos").classList.remove("photos_full-screen");
-      // document
-      //   .querySelector(".main__container")
-      //   .classList.remove("main__container_full-screen");
-      // document.querySelector(".main__item").style.transition = "0.5s ease-out";
-      // document.querySelector("#bg_5").style.transform = `translateY(0px)`;
-      // document.querySelector(".photos").style.transform = `translateY(0px)`;
-      // items = document.querySelectorAll(".main__item_to-hide");
-      // items.forEach((el) => {
-      //   el.style.opacity = 1;
-      // });
+      setTimeout(() => {
+        scroll.animateScroll(document.querySelector("#bg_5"));
 
-      //       entry.target.src = entry.target.dataset.src;
-      //       observer.unobserve(entry.target);
-      //       // document.querySelector("body").style.overflow = "visible";
-      //     }
-      //   });
-      // }, options2);
-
-      // swiperPhoto.init();
-      // // let controller = new ScrollMagic.Controller();
-
-      // // // create a scene
-      // // new ScrollMagic.Scene({})
-      // //   .setPin("#bg_5") // pins the element for the the scene's duration
-      // //   .addTo(controller); // assign the scene to the controller
-      // // document.querySelector(".bg_5").setAttribute("tabindex", "-1");
-
-      // // document.querySelector(".bg_5").focus();
-
-      // // document.querySelector(".bg_5").removeAttribute("tabindex");
-      // scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      // (scrollLeft = window.pageXOffset || document.documentElement.scrollLeft),
-      //   // if any scroll is attempted,
-      //   // set this to the previous value
-      //   (window.onscroll = function () {
-      //     window.scrollTo(scrollLeft, scrollTop);
-      //   });
-
-      // location.href = "#";
-      // location.href = "#bg_5";
-      // document.querySelector("body").style.overflow = "visible";
-      // document.querySelector(".bg_5").scrollIntoView();
-      // window.scrollTo({ top: 1770, behavior: "smooth" });
-
-      document.querySelector(".photos").classList.add("photos_full-screen");
-      document
-        .querySelector(".main__container")
-        .classList.add("main__container_full-screen");
-      // document
-      //   .querySelector(".section__titles")
-      //   .classList.add("section__titles_full-screen");
+        document.querySelector(".photos").classList.add("photos_full-screen");
+        document
+          .querySelector(".main__container")
+          .classList.add("main__container_full-screen");
+        // document.querySelector("body").style.overflow = "visible";
+      }, 100);
+      setTimeout(() => {
+        observer2.observe(document.querySelector("#bg_4"));
+      }, 800);
       entry.target.src = entry.target.dataset.src;
       observer.unobserve(entry.target);
-      // document.querySelector("body").style.overflow = "visible";
     }
   });
 };
@@ -388,3 +407,18 @@ const options = {
 const observer = new IntersectionObserver(callback, options);
 
 observer.observe(bg5);
+
+document.addEventListener(
+  "scrollStart",
+  () => {
+    document.querySelector("body").style.overflow = "hidden";
+  },
+  false
+);
+document.addEventListener(
+  "scrollStop",
+  () => {
+    document.querySelector("body").style.overflow = "visible";
+  },
+  false
+);
