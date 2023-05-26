@@ -471,7 +471,7 @@ body {
   background-position: center center;
   width: 8px;
   height: 26px;
-  background-image: url(/images/arrow-left.svg);
+  background-image: url(/static/images/arrow-left.svg);
 }
 
 .arrow-center {
@@ -479,7 +479,7 @@ body {
   background-position: center center;
   width: 8px;
   height: 43px;
-  background-image: url(/images/arrow-center.svg);
+  background-image: url(/static/images/arrow-center.svg);
 }
 
 .video {
@@ -490,7 +490,7 @@ body {
   margin: 0 auto;
   width: 256px;
   height: 270px;
-  background-image: url(/images/main_img.png);
+  background-image: url(/static/images/main_img.png);
 }
 
 .accents {
