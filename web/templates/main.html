@@ -1,201 +1,3 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--  <head>-->
-<!--    <meta charset="UTF-8" />-->
-<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
-<!--    <title>Document</title>-->
-<!--    <link rel="preconnect" href="https://fonts.googleapis.com" />-->
-<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />-->
-<!--    <link-->
-<!--      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;600;700;900&display=swap"-->
-<!--      rel="stylesheet"-->
-<!--    />-->
-
-<!--    <link-->
-<!--      rel="stylesheet"-->
-<!--      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"-->
-<!--    />-->
-<!--    <link rel="stylesheet" href="{{ url_for('static', filename='test.css') }}" />-->
-<!--  </head>-->
-<!--  <body>-->
-<!--    <div class="container">-->
-<!--      <div class="first-screen">-->
-<!--        <div class="sliders">-->
-<!--          <div class="slide-line">-->
-<!--            <p class="first-line">-->
-<!--              &nbspMEDIA МЕДИА MEDIA MEДIA MEDIA МЕДИА MEDIA MEДIA MEDIA МЕДИА-->
-<!--              MEDIA MEДIA MEDIA МЕДИА MEDIA MEДIA-->
-<!--            </p>-->
-<!--          </div>-->
-<!--          <div class="slide-line">-->
-<!--            <p class="second-line">-->
-<!--              &nbspPARTY PARTY PARTY PARTY PARTY PARTY PARTY PARTY PARTY PARTY-->
-<!--              PARTY PARTY PARTY PARTY PARTY PARTY-->
-<!--            </p>-->
-<!--          </div>-->
-<!--          <div class="slide-line">-->
-<!--            <p class="third-line">-->
-<!--              &nbspMINSK МИНСК МИНСК MINSK МИНСК MINSK МИНСК МИНСК MINSK МИНСК-->
-<!--              MINSK МИНСК МИНСК MINSK МИНСК MINSK МИНСК МИНСК MINSK МИНСК-->
-<!--            </p>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="section">-->
-<!--          <div class="arrows">-->
-<!--            <div class="arrow-left"></div>-->
-<!--            <div class="arrow-center"></div>-->
-<!--          </div>-->
-<!--          <div class="video"></div>-->
-<!--          <div class="">-->
-<!--            <div class="button">-->
-<!--              <a href="#" class="buy-ticket">Купить билет</a>-->
-<!--            </div>-->
-<!--            <div class="tabs">-->
-<!--              <div class="tabs__container">-->
-<!--                <div class="tabs__logo">MEDIA<br />PARTY</div>-->
-<!--                <ul class="tabs__items">-->
-<!--                  <li class="tabs__item">-->
-<!--                    <a href="#">Главная</a>-->
-<!--                  </li>-->
-<!--                  <li class="tabs__item">-->
-<!--                    <a href="#">Что будет?</a>-->
-<!--                  </li>-->
-<!--                  <li class="tabs__item">-->
-<!--                    <a href="#">Для кого?</a>-->
-<!--                  </li>-->
-<!--                </ul>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div class="main-swiper">-->
-<!--        <div class="swiper-wrapper main-wrapper">-->
-<!--          <div class="swiper-slide main-slide">-->
-<!--            <div class="pop-up">-->
-<!--              <div class="pop-up__inner">-->
-<!--                <div class="pop-up__content">-->
-<!--                  <div class="flex-wrapper">-->
-<!--                    <div class="pop-up-titles">-->
-<!--                      <span class="pop-up__title">9 ИЮНЯ 2023</span>-->
-<!--                      <span class="pop-up__title_right">Пятница</span>-->
-<!--                    </div>-->
-
-<!--                    <div class="accents">-->
-<!--                      <div class="accent accent-left">-->
-<!--                        event-пространство Бетон-->
-<!--                      </div>-->
-<!--                      <div class="accent accent-right">20:00 — 00:00</div>-->
-<!--                    </div>-->
-
-<!--                    <div class="smile-swiper smile-swiper_hidden">-->
-<!--                      <div class="swiper-wrapper smile-wrapper">-->
-<!--                        <div class="swiper-slide">-->
-<!--                          <div class="slider__container">-->
-<!--                            <img src="{{ url_for('static', filename='images/face.png') }}" alt="face" />-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide">-->
-<!--                          <div class="slider__container">-->
-<!--                            <img src="{{ url_for('static', filename='images/hand.png') }}" alt="face" />-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide">-->
-<!--                          <div class="slider__container">-->
-<!--                            &lt;!&ndash; <img src="/images/face.png" alt="face" /> &ndash;&gt;-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide">-->
-<!--                          <div class="slider__container"></div>-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide">-->
-<!--                          <div class="slider__container"></div>-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide">-->
-<!--                          <div class="slider__container">-->
-<!--                            &lt;!&ndash; <img src="/images/hand.png" alt="face" /> &ndash;&gt;-->
-<!--                            <img src="{{ url_for('static', filename='images/face.png') }}" alt="face" />-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-
-<!--                    <div class="swiper swiper-inner swiper-inner_hidden">-->
-<!--                      <div class="swiper-wrapper">-->
-<!--                        <div class="swiper-slide pop-up-description">-->
-<!--                          Приветствуем вас на<br />вечеринке "StarStudded-->
-<!--                          Night"<br />-->
-<!--                          - событии, специально-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide pop-up-description">-->
-<!--                          созданном для медийных личностей,<br />включая-->
-<!--                          предпринимателей,<br />ведущих, артистов и блоггеров.-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide pop-up-description">-->
-<!--                          Погрузитесь в мир гламура и<br />известности на самой-->
-<!--                          горячей<br />-->
-<!--                          вечеринке сезона!-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide pop-up-description">-->
-<!--                          Приветствуем вас на вечеринке<br />"StarStudded Night"-->
-<!--                          - событии,<br />-->
-<!--                          специально-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide pop-up-description">-->
-<!--                          созданном для медийных личностей,<br />включая-->
-<!--                          предпринимателей,<br />-->
-<!--                          ведущих, артистов и блоггеров.-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="flex-wrapper wrapper-to-change warapper_active">-->
-<!--                    <div class="button__container item_hidden">-->
-<!--                      <a href="#" class="buy-ticket">Купить билет</a>-->
-<!--                    </div>-->
-<!--                    <img-->
-<!--                      class="smiles-img smiles_hidden"-->
-<!--                      src="{{ url_for('static', filename='images/smiles.png') }}"-->
-<!--                      alt="smiles"-->
-<!--                    />-->
-<!--                    <div class="section__titles">-->
-<!--                      <p class="main-title">ЧТО БУДЕТ?</p>-->
-<!--                      <p class="second-title">Это будет что-то!</p>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <div class="swiper-slide main-slide">-->
-<!--            <div class="second-screen second-screen_hidden">-->
-<!--              <div class="gallery-swiper">-->
-<!--                <div class="swiper-wrapper">-->
-<!--                  <div class="swiper-slide gallery-slide">1</div>-->
-<!--                  <div class="swiper-slide gallery-slide">2</div>-->
-<!--                  <div class="swiper-slide gallery-slide">3</div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <div class="swiper-slide main-slide">-->
-<!--            <div class="third-screen"></div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>-->
-
-<!--    <script src="{{ url_for('static', filename='test.js') }}"></script>-->
-<!--  </body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -212,6 +14,11 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="{{ url_for('static', filename='images/statue.png') }}"
     />
     <link
       rel="preload"
@@ -266,6 +73,9 @@
           <div class="arrows">
             <div class="arrow-left"></div>
             <div class="arrow-center"></div>
+            <p class="arrow-text">
+              Листай, чтобы узнать больше, или сразу покупай билет!
+            </p>
           </div>
           <div class="video"></div>
           <div class="flex-bottom"></div>
@@ -296,86 +106,54 @@
                       <div class="accent accent-right">20:00 — 00:00</div>
                     </div>
 
-                    <div class="smile-swiper smile-swiper_hidden">
-                      <div class="swiper-wrapper smile-wrapper">
-                        <div class="swiper-slide">
-                          <div class="slider__container">
-                            <img
-                              src="{{ url_for('static', filename='images/face.png') }}"
-                              alt="face"
-                            />
-                          </div>
-                        </div>
-                        <div class="swiper-slide">
-                          <div class="slider__container">
-                            <img
-                              src="{{ url_for('static', filename='images/hand.png') }}"
-                              alt="face"
-                            />
-                          </div>
-                        </div>
-                        <div class="swiper-slide">
-                          <div class="slider__container">
-                            <!-- <img src="/images/face.png" alt="face" /> -->
-                          </div>
-                        </div>
-                        <div class="swiper-slide">
-                          <div class="slider__container"></div>
-                        </div>
-                        <div class="swiper-slide">
-                          <div class="slider__container"></div>
-                        </div>
-                        <div class="swiper-slide">
-                          <div class="slider__container">
-                            <img
-                              src="{{ url_for('static', filename='images/face.png') }}"
-                              alt="face"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <img
+                      class="statue"
+                      src="{{ url_for('static', filename='images/status.png') }}"
+                      alt="statue"
+                    />
 
                     <div class="swiper swiper-inner swiper-inner_hidden">
                       <div class="swiper-wrapper">
                         <div class="swiper-slide pop-up-description">
-                          Приветствуем вас на<br />вечеринке "StarStudded
-                          Night"<br />
-                          - событии, специально
+                          <div class="swiper-slide_inner">
+                            MEDIA PARTY — закрытая<br />вечеринка для
+                            артистов,<br />
+                            журналистов, блогеров и<br />
+                            предпринимателей
+                          </div>
                         </div>
                         <div class="swiper-slide pop-up-description">
-                          созданном для медийных личностей,<br />включая
-                          предпринимателей,<br />ведущих, артистов и блоггеров.
+                          <div class="swiper-slide_inner">
+                            Концепция вечеринки:<br />#золотаямолодежь<br />#newmoney<br />#премияоскар
+                          </div>
                         </div>
                         <div class="swiper-slide pop-up-description">
-                          Погрузитесь в мир гламура и<br />известности на самой
-                          горячей<br />
-                          вечеринке сезона!
+                          <div class="swiper-slide_inner">
+                            Погрузись в мир гламура и<br />известности на самой
+                            горячей<br />вечеринке сезона, где 1 знакомство<br />
+                            полностью окупит твой билет!
+                          </div>
                         </div>
                         <div class="swiper-slide pop-up-description">
-                          Приветствуем вас на вечеринке<br />"StarStudded Night"
-                          - событии,<br />
-                          специально
+                          <div class="swiper-slide_inner">
+                            MEDIA PARTY — закрытая<br />вечеринка для
+                            артистов,<br />
+                            журналистов, блогеров и<br />
+                            предпринимателей
+                          </div>
                         </div>
                         <div class="swiper-slide pop-up-description">
-                          созданном для медийных личностей,<br />включая
-                          предпринимателей,<br />
-                          ведущих, артистов и блоггеров.
+                          <div class="swiper-slide_inner">
+                            Концепция вечеринки:<br />#золотаямолодежь<br />#newmoney<br />#премияоскар
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="flex-wrapper wrapper-to-change wrapper_active">
                     <div class="button__container item_hidden">
-                      <a id="click" href="#bg_5" class="buy-ticket"
-                        >Купить билет</a
-                      >
+                      <a id="click" href="#" class="buy-ticket">Купить билет</a>
                     </div>
-                    <img
-                      class="smiles-img smiles_hidden"
-                      src="{{ url_for('static', filename='images/smiles.png') }}"
-                      alt="smiles"
-                    />
                   </div>
                 </div>
               </div>
@@ -416,17 +194,20 @@
             </div>
           </div>
           <img
-            src="{{ url_for('static', filename='images/bg_2.png') }}"
+            src="{{ url_for('static', filename='images/media-party.png') }}"
             alt="party"
             class="media-party"
           />
           <div class="main__item main__item_to-hide">
             <div class="main__item_bg bg_2">
-              <img src="/images/bg_2.png" alt="" class="main__item_img" />
+              <img
+                src="{{ url_for('static', filename='images/bg_2.png') }}"
+                alt=""
+                class="main__item_img"
+              />
             </div>
             <div class="main__item_title item_title_2">
-              Мастер-класс<br />от блогеров
-              <span class="small-text">(миллионников)</span>
+              Мастер-класс от<br />блогеров
             </div>
             <div class="main__item_text item_text_2">
               Мы подготовили плейлист, который поможет раскрепоститься и ни о
@@ -484,25 +265,32 @@
               вечеринки
             </div>
           </div>
-          <div data-easing="easeOutQuad" id="bg_5" class="main__item">
-            <div class="main__item_bg bg_5">
-              <img
-                src="{{ url_for('static', filename='images/bg_5.png') }}"
-                alt=""
-                class="main__item_img"
-              />
-            </div>
-            <div class="main__item_title item_title_5">Дресс-код</div>
-            <div class="main__item_text item_text_5">
-              Разрешены только черные и белые вещи. Можно добавить яркий
-              акцентный цвет с помощью аксессуаров
+          <div class="bg_5_container">
+            <div data-easing="easeOutQuad" id="bg_5" class="main__item">
+              <div class="main__item_bg bg_5">
+                <img
+                  src="{{ url_for('static', filename='images/bg_5.png') }}"
+                  alt=""
+                  class="main__item_img"
+                />
+              </div>
+              <div class="main__item_title item_title_5">Дресс-код</div>
+              <div class="main__item_text item_text_5">
+                Разрешены только черные и белые вещи. Можно добавить яркий
+                акцентный цвет с помощью аксессуаров
+              </div>
             </div>
           </div>
         </div>
+        <div class="main__container_bottom"></div>
         <div class="photos">
           <img
-            class="photo__item"
+            class="photo__item photo__item_1"
             src="{{ url_for('static', filename='images/photo_1.png') }}"
+          />
+          <img
+            src="{{ url_for('static', filename='images/party-above.png') }}"
+            class="img-above"
           />
           <img
             class="photo__item"
@@ -515,8 +303,164 @@
           <img
             id="last-photo"
             class="photo__item"
-            src="{{ url_for('static', filename='images/photo_3.png') }}"
+            src="{{ url_for('static', filename='images/photo_4.png') }}"
           />
+        </div>
+      </main>
+      <main class="photo-main">
+        <div data-easing="easeOutQuad" id="bg_5_2" class="main__item">
+          <div class="main__item_bg bg_5_2">
+            <img
+              src="{{ url_for('static', filename='images/bg_2.png') }}"
+              alt=""
+              class="main__item_img"
+            />
+          </div>
+          <div class="main__item_title item_title_5">Дресс-код</div>
+          <div class="main__item_text item_text_5">
+            Разрешены только черные и белые вещи. Можно добавить яркий акцентный
+            цвет с помощью аксессуаров
+          </div>
+        </div>
+        <section class="photo-section">
+          <div class="photo__titles">
+            <p class="photo__title_1">Для кого</p>
+            <p class="photo__title_2 photo__title_2_content">MEDIA PARTY</p>
+          </div>
+          <img
+            src="{{ url_for('static', filename='images/phone.png') }}"
+            alt=""
+            class="photo-section__img"
+          />
+          <p class="photo__subtitle">1. Для блогеров</p>
+          <p class="photo__description">
+            Отдохнуть + попасть в СМИ (на телек/радио) + получить заказ на
+            рекламу от бизнеса
+          </p>
+          <div class="photo__info">
+            <div class="photo__line"></div>
+            <div class="line-text">EASY</div>
+          </div>
+          <img
+            src="{{ url_for('static', filename='images/micro.png') }}"
+            alt=""
+            class="photo-section__img"
+          />
+          <p class="photo__subtitle">2. Для артистов</p>
+          <p class="photo__description">
+            Познакомиться с крутыми блогерами + попасть на ТВ + наконец-то
+            полностью расслабиться в комфортном окружении
+          </p>
+          <div class="photo__info">
+            <div class="photo__line"></div>
+            <div class="line-text">НА MEDIA PARTY</div>
+          </div>
+          <img
+            src="{{ url_for('static', filename='images/pen.png') }}"
+            alt=""
+            class="photo-section__img"
+          />
+          <p class="photo__subtitle">3. Для СМИ</p>
+          <p class="photo__description">
+            Найти блогеров для своих рубрик + познакомиться с предпринимателями
+            + хорошо отдохнуть в окружении с общими интересами
+          </p>
+          <div class="photo__description_info">
+            *первая и единственная вечеринка для СМИ, не считая корпоративов :))
+          </div>
+          <div class="photo__info">
+            <div class="photo__line"></div>
+            <div class="line-text">9 ИЮНЯ</div>
+          </div>
+          <img
+            src="{{ url_for('static', filename='images/case.png') }}"
+            alt=""
+            class="photo-section__img"
+          />
+          <p class="photo__subtitle subtitle_markered">
+            4. Для владельцев бизнеса
+          </p>
+          <p class="photo__description">
+            Познакомиться с инфлюенсерами и СМИ для продвижения своего продукта
+            + прокачать личный бренд + отдохнуть
+          </p>
+          <div class="photo__info">
+            <div class="photo__line"></div>
+            <div class="line-text">20:00</div>
+          </div>
+          <div class="photo__info_bottom">
+            <div class="photo__line photo__line_top"></div>
+            <div class="photo__line photo__line_bottom"></div>
+            <div class="text-bottom_left">
+              Не забывайте, что именно на таких мероприятиях часто находят
+              вторую половинку с общими интересами и похожим графиком :))
+            </div>
+          </div>
+        </section>
+        <div class="button__container button__container_active">
+          <a id="click" href="#" class="buy-ticket">Купить билет</a>
+        </div>
+        <div class="photo__titles">
+          <p class="photo__title_1">Уже идут на</p>
+          <p class="photo__title_2 photo__title_2_marked">MEDIA PARTY</p>
+        </div>
+        <div class="profiles">
+          <div class="profile">
+            <div class="profiles__hr"></div>
+            <div class="profile__content">
+              <img
+                src="{{ url_for('static', filename='images/profile_1.png') }}"
+                alt="photo"
+                class="profile__img"
+              />
+              <div class="">
+                <p class="profile__nickname">@r.o.mir</p>
+                <p class="profile__info">Видеоблогер, продюсер</p>
+              </div>
+            </div>
+          </div>
+          <div class="profile">
+            <div class="profiles__hr"></div>
+            <div class="profile__content">
+              <img
+                src="{{ url_for('static', filename='images/profile_2.png') }}"
+                alt="photo"
+                class="profile__img"
+              />
+              <div class="">
+                <p class="profile__nickname">@belozorovaa</p>
+                <p class="profile__info">Леся Атлант, видеоблогер</p>
+              </div>
+            </div>
+          </div>
+          <div class="profile">
+            <div class="profiles__hr"></div>
+            <div class="profile__content">
+              <img
+                src="{{ url_for('static', filename='images/profile_3.png') }}"
+                alt="photo"
+                class="profile__img"
+              />
+              <div class="">
+                <p class="profile__nickname">@maxi_musaev</p>
+                <p class="profile__info">Блогер, Ютуб 1.2М<br />Тик Ток 3.4М</p>
+              </div>
+            </div>
+          </div>
+          <div class="profile">
+            <div class="profiles__hr"></div>
+            <div class="profile__content">
+              <img
+                src="{{ url_for('static', filename='images/profile_4.png') }}"
+                alt="photo"
+                class="profile__img"
+              />
+              <div class="">
+                <p class="profile__nickname">@ayazikme</p>
+                <p class="profile__info">Блогер, Ютуб 2.5М<br />Тик Ток 3М</p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
