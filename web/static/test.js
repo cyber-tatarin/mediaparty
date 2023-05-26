@@ -165,7 +165,34 @@ document.addEventListener("scroll", (event) => {
   }
 });
 
+let touchDelta;
+
+document.addEventListener("touchmove", (event) => {
+  touchDelta = event.changedTouches[0].clientY - event.touches[0].clientY;
+  console.log("top slide = ", findTop(".main-slide"));
+  if (
+    findTop(".main-slide") === 0 &&
+    document
+      .querySelector(".first-screen")
+      .classList.contains("first-screen_hidden" && touchDelta > 0)
+  ) {
+    console.log("GGG");
+    document.querySelector("body").style.overflow = "hidden";
+  }
+});
+
 document.addEventListener("touchstart", (event) => {
+  // console.log("top slide = ", findTop(".main-slide"));
+  // if (
+  //   findTop(".main-slide") === 0 &&
+  //   document
+  //     .querySelector(".first-screen")
+  //     .classList.contains("first-screen_hidden")
+  // ) {
+  //   console.log("GGG");
+  //   document.querySelector("body").style.overflow = "hidden";
+  // }
+
   clientX = event.touches[0].clientX;
   clientY = event.touches[0].clientY;
 });
@@ -422,3 +449,17 @@ document.addEventListener(
   },
   false
 );
+
+// function doScroll(e) {
+//   // positive deltas are top and left
+//   // down and right are negative
+
+//   // horizontal offset    e.deltaX
+//   // vertical offset      e.deltaY
+
+//   console.log(`x:${e.deltaX} y:${e.deltaY}`);
+
+//   e.preventDefault(); // disable the actual scrolling
+// }
+
+// window.addEventListener("wheel", doScroll, false);

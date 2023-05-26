@@ -397,7 +397,7 @@
             <div class="main__item_bg bg_1">
               <img
                 src="{{ url_for('static', filename='images/bg_1.png') }}"
-                alt="photo"
+                alt=""
                 class="main__item_img"
               />
             </div>
@@ -409,15 +409,25 @@
               знакомство или сделка полностью окупит Ваш билет
             </div>
           </div>
+          <div class="main__item main__item_to-hide solo__container">
+            <div class="main__item_text item_text_1 main__item_solo">
+              Кстати, мы подготовили специальную комфортную программу, чтобы
+              каждый участник гарантированно ушел с новыми знакомствами
+            </div>
+          </div>
+          <img
+            src="{{ url_for('static', filename='images/bg_2.png') }}"
+            alt="party"
+            class="media-party"
+          />
           <div class="main__item main__item_to-hide">
             <div class="main__item_bg bg_2">
-              <img
-                src="{{ url_for('static', filename='images/bg_2.png') }}"
-                alt="photo"
-                class="main__item_img"
-              />
+              <img src="/images/bg_2.png" alt="" class="main__item_img" />
             </div>
-            <div class="main__item_title item_title_2">Крутая музыка</div>
+            <div class="main__item_title item_title_2">
+              Мастер-класс<br />от блогеров
+              <span class="small-text">(миллионников)</span>
+            </div>
             <div class="main__item_text item_text_2">
               Мы подготовили плейлист, который поможет раскрепоститься и ни о
               чем не думать
@@ -427,23 +437,42 @@
             <div class="main__item_bg bg_3">
               <img
                 src="{{ url_for('static', filename='images/bg_3.png') }}"
-                alt="photo"
+                alt=""
                 class="main__item_img"
               />
             </div>
             <div class="main__item_title item_title_3">
-              Конкурсы и<br />сюжетные игры
+              Конкурсы + MEDIA<br />PARTY ПРЕМИЯ
             </div>
             <div class="main__item_text item_text_3">
               Сценарий прописан на все 4 часа. Поэтому никто не останется без
               новых знакомств и улыбки до ушей
             </div>
           </div>
+          <div class="awards">
+            <p class="awards__main-title">Список Премий:</p>
+            <div class="award__ol">
+              <p class="awards__item">1. “Лучший Анонс”</p>
+              <p class="awards__item">2. “Король Нетворкинга”</p>
+              <p class="awards__item">3. “Самый крутой костюм”</p>
+              <p class="awards__item">4. “Секретная премия”</p>
+              <p class="awards__item">5. “Любимая премия”</p>
+            </div>
+            <p class="awards__title">
+              За некоторые Премии придётся побороться еще до начала мероприятия,
+              а за остальные — уже в день вечеринки
+            </p>
+          </div>
+          <img
+            src="{{ url_for('static', filename='images/media-party.png') }}"
+            alt="party"
+            class="media-party"
+          />
           <div id="bg_4" class="main__item main__item_to-hide">
             <div class="main__item_bg bg_4">
               <img
                 src="{{ url_for('static', filename='images/bg_4.png') }}"
-                alt="photo"
+                alt=""
                 class="main__item_img"
               />
             </div>
@@ -459,7 +488,7 @@
             <div class="main__item_bg bg_5">
               <img
                 src="{{ url_for('static', filename='images/bg_5.png') }}"
-                alt="photo"
+                alt=""
                 class="main__item_img"
               />
             </div>
@@ -486,7 +515,7 @@
           <img
             id="last-photo"
             class="photo__item"
-            src="{{ url_for('static', filename='images/photo_4.png') }}"
+            src="{{ url_for('static', filename='images/photo_3.png') }}"
           />
         </div>
       </main>
