@@ -115,6 +115,10 @@ body {
   flex-direction: column;
   row-gap: 24px;
   margin-top: 36px;
+  margin-bottom: 72px;
+}
+
+.profile {
 }
 
 .profiles__hr {
@@ -124,6 +128,15 @@ body {
   background-position: center center;
   height: 4px;
   background-image: url(/static/images/dashed_line.svg);
+}
+
+.profiles__hr_orange {
+  margin-bottom: 16px;
+  border-radius: 6px;
+  object-fit: cover;
+  background-position: center center;
+  height: 6px;
+  background-image: url(/static/images/orange_line.svg);
 }
 
 .photo__title_1,
@@ -142,6 +155,33 @@ body {
   content: "?";
   position: absolute;
   color: #ffffff;
+}
+
+.author__title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 32px;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.author__inner {
+  margin: 0;
+  padding: 20px 24px;
+}
+
+.author__info_item {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 17px;
+  color: #ffffff;
+}
+
+.author__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
 }
 
 .img-above {
@@ -252,6 +292,7 @@ body {
 }
 
 .main__item_title {
+  transition: 0.5s ease-out;
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;
@@ -342,6 +383,7 @@ body {
 }
 
 .photo__item {
+  z-index: 11;
   width: 100%;
   max-width: 100%;
 }
@@ -398,7 +440,7 @@ body {
 }
 
 .pop-up__inner {
-  height: 43px;
+  height: 42px;
   padding-top: 24px;
 
   transition: 0.5s ease-out;
@@ -460,9 +502,36 @@ body {
   transform: translateY(44px);
 }
 
+.scroll {
+  transition: 0.5s ease-out;
+  margin: 200px 0px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 164px;
+  line-height: 200px;
+  color: #ffffff;
+}
+
+.scroll__p {
+  transition: 0.5s ease-out;
+}
+
 #bg_5 {
   /* z-index: 5; */
   transition: 0.5s ease-out;
+}
+
+.bg_5_active {
+  transition: 0.5s ease-out;
+  height: 1000px;
+  padding: 28px 44px 0px;
+  margin: 0;
+  border-radius: 0;
+}
+
+.photos_active {
+  margin-top: -650px;
+  background-color: #ffffff;
 }
 
 #bg_5_2 {
@@ -500,7 +569,7 @@ body {
   font-size: 16px;
   line-height: 19px;
   color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 
 .photo__description_info {
@@ -512,7 +581,7 @@ body {
 }
 
 .text-bottom_left {
-  width: 70%;
+  width: 80%;
   font-weight: 600;
   font-size: 12px;
   line-height: 14px;
@@ -531,6 +600,36 @@ body {
   line-height: 20px;
   color: #ffffff;
   margin-bottom: 8px;
+}
+
+.profile__phone {
+  position: relative;
+  margin-top: 10px;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ffffff;
+}
+
+.profile__phone::before {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: -1px;
+  right: -30px;
+  content: "";
+  background-image: url(/static/images/telegram.svg);
+}
+
+.profile__phone::after {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: -1px;
+  right: -50px;
+  content: "";
+  background-image: url(/static/images/viber.svg);
 }
 
 .profile__info {
@@ -560,7 +659,7 @@ body {
 }
 
 .photo__info_bottom {
-  margin-top: 44px;
+  margin-top: 54px;
   align-items: flex-end;
   display: flex;
   flex-direction: column;
@@ -1117,9 +1216,40 @@ body {
   margin-bottom: 0px;
 }
 
+.author__button {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.author__descriprion {
+  max-width: 236px;
+  margin: 0 auto;
+  margin-bottom: 72px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 15px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.author__director {
+  margin-bottom: 8px;
+}
+
+.author__last-info {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+}
+
 @media (max-width: 350px) {
   .pop-up__inner {
-    height: 41px;
+    /* height: 41px; */
   }
   .pop-up__title {
     font-size: 28px;
