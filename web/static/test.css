@@ -171,6 +171,7 @@ body {
 }
 
 .author__info_item {
+  text-align: left;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
