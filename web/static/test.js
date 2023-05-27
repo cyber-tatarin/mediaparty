@@ -1,4 +1,4 @@
-document.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const swiper = new Swiper(".swiper", {
     direction: "vertical",
     mousewheel: {
