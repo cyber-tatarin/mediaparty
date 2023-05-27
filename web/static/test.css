@@ -522,12 +522,26 @@ body {
   transition: 0.5s ease-out;
 }
 
+.main__item-scroll {
+  padding: 10px 10px 0px;
+}
+
 .bg_5_active {
+  background-color: transparent;
   transition: 0.5s ease-out;
   height: 1000px;
   padding: 28px 44px 0px;
   margin: 0;
   border-radius: 0;
+}
+
+.bg_5_scroll {
+  padding: 28px 44px 24px;
+  margin-top: -28px;
+  margin-left: -44px;
+  margin-right: -44px;
+  border-radius: 0;
+  background-color: #ffffff;
 }
 
 .photos_active {
@@ -780,7 +794,7 @@ body {
   background-position: center center;
   width: 8px;
   height: 26px;
-  background-image: url(/static/images/arrow-left.svg);
+  background-image: url(/arrow-left.svg);
 }
 
 .arrow-center {
