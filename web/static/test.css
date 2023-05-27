@@ -186,6 +186,7 @@ body {
 }
 
 .img-above {
+  z-index: 11;
   margin-top: 20px;
   margin-left: 20px;
   position: absolute;
@@ -376,7 +377,9 @@ body {
 .photos {
   background-color: #292929;
   transition: 0.5s ease-out;
-  padding: 30px 44px 32px;
+  margin-left: 44px;
+  margin-right: 44px;
+  padding: 30px 0px 32px;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -545,6 +548,9 @@ body {
 }
 
 .photos_active {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 30px 44px 32px;
   margin-top: -650px;
   background-color: #ffffff;
 }
@@ -794,7 +800,7 @@ body {
   background-position: center center;
   width: 8px;
   height: 26px;
-  background-image: url(/arrow-left.svg);
+  background-image: url(/static/images/arrow-left.svg);
 }
 
 .arrow-center {
