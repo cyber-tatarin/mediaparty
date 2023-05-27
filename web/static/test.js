@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let scrollCounter = 0;
 
   swiper.on("activeIndexChange", (event) => {
-    console.log("slideCounter = ", slideCounter);
-    console.log("swiperActiveSlide = ", swiper.activeIndex);
+    // console.log("slideCounter = ", slideCounter);
+    // console.log("swiperActiveSlide = ", swiper.activeIndex);
 
     if (scrollCounter === 0 && slideCounter === 0 && !touchDevice) {
       document.querySelector(".statue").style.transition = "0.5s ease-out 0.3s";
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (deltaY) {
       touch = true;
-      console.log("touched", swiper.activeIndex, slideCounter);
+      // console.log("touched", swiper.activeIndex, slideCounter);
 
       if (slideCounter === 0) {
       }
@@ -125,11 +125,11 @@ document.addEventListener("DOMContentLoaded", () => {
     //// TO DOWN
 
     if (deltaY < 0) {
-      console.log("down", slideCounter, swiper.activeIndex);
+      // console.log("down", slideCounter, swiper.activeIndex);
       if (
         document.querySelector(".pop-up").classList.contains("pop-up-static")
       ) {
-        console.log("aaa");
+        // console.log("aaa");
       }
 
       if (slideCounter > 3) {
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //// TO UP
 
     if (deltaY > 0) {
-      console.log("up", slideCounter, swiper.activeIndex);
+      // console.log("up", slideCounter, swiper.activeIndex);
       if (swiper.activeIndex < 3 && slideCounter > 0) {
         if (!swiper.init) swiper.init();
         if (findTop(".main-slide") === 0) {
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .classList.contains("pop-up_full-screen")
       ) {
         if (slideCounter > 0) slideCounter--;
-        console.log("destroy");
+        // console.log("destroy");
 
         document
           .querySelector(".pop-up__inner")
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (slideCounter > 0 && findTop(".main-slide") === 0) slideCounter--;
       }
 
-      console.log("top = ", findTop("#bg_5"));
+      // console.log("top = ", findTop("#bg_5"));
 
       // if (
       //   document
@@ -277,16 +277,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let increasingColor = "rgba(41, 41, 41, ratio)";
   let decreasingColor = "rgba(255, 255, 255, ratio)";
 
-  let observer;
+  let direction = true;
 
-  let options = {
+  let mainOptions = {
     root: null,
     rootMargin: "0px",
     threshold: buildThresholdList(),
   };
 
-  observer = new IntersectionObserver(handleIntersect, options);
-  observer.observe(boxElement);
+  let observerMain = new IntersectionObserver(handleIntersect, mainOptions);
 
   function buildThresholdList() {
     let thresholds = [];
@@ -298,56 +297,84 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     thresholds.push(0);
-    return thresholds;
+    return thresholds.reverse();
   }
 
   function handleIntersect(entries, observer) {
     entries.forEach((entry) => {
       if (entry.intersectionRatio > prevRatio) {
+        // console.log(1 - entry.intersectionRatio);
+        // console.log("start");
+        document.querySelector("#bg_5").style.backgroundColor =
+          decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         document.querySelector(".photos").style.backgroundColor =
-          increasingColor.replace("ratio", entry.intersectionRatio);
+          decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
       } else {
+        // console.log(entry.intersectionRatio);
+        // console.log("end");
+        // console.log(1 - entry.intersectionRatio);
+        document.querySelector("#bg_5").style.backgroundColor =
+          decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         document.querySelector(".photos").style.backgroundColor =
-          decreasingColor.replace("ratio", entry.intersectionRatio);
+          decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
       }
 
       prevRatio = entry.intersectionRatio;
     });
   }
 
-  const callback = (entries, observer) => {
+  const callback1 = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         console.log("FIRST OBSERVER");
+        // if (document.querySelector(".photos_active"))
+
+        observer3.observe(document.querySelector("#bg_4"));
+        observerMain.observe(boxElement);
         document.querySelector(".photo-main").style.display = "block";
-        const padding = window.innerHeight / 2;
-        // document
-        //   .querySelector(".bg_5_container")
-        //   .classList.add("bg_5_container_active");
-        // document
-        //   .querySelector(".main__container_bottom")
-        //   .classList.add("main__container_bottom_active");
+        const padding = window.innerHeight - 169 - 16;
+        console.log(padding);
+        document.querySelector("#bg_5").classList.add("bg_5_active");
+        document.querySelector(".photos").classList.add("photos_active");
+        document.querySelector(".photos_active").style.transition =
+          "0.5s ease-out";
+        document.querySelector(".photos_active").style.opacity = "1";
+        document.querySelector(".photos_active").style.marginTop = `${-1410}px`;
+        document.querySelector(".item_title_5").style.top = "70px";
+        document.querySelector(".scroll__p").style.color = "transparent";
 
-        // document.querySelector("#bg_5_2").style.display = "block";
-        // let scroll = new SmoothScroll('a[href*="#"]', {
-        //   speed: 500,
-        //   offset: 10,
-        //   // easing: "easeOutQuad",
-        // });
+        entry.target.src = entry.target.dataset.src;
+        // observer.unobserve(entry.target);
+      }
+    });
+  };
 
-        // setTimeout(() => {
-        //   scroll.animateScroll(document.querySelector("#bg_5"));
+  const padding = window.innerHeight - 16;
 
-        //   document.querySelector(".photos").classList.add("photos_full-screen");
-        //   document
-        //     .querySelector(".main__container")
-        //     .classList.add("main__container_full-screen");
-        //   // document.querySelector("body").style.overflow = "visible";
-        // }, 100);
+  const options1 = {
+    rootMargin: `0px 0px ${-padding}px 0px`,
+    threshold: 0,
+  };
 
-        // setTimeout(() => {
-        //   observer2.observe(document.querySelector("#bg_4"));
-        // }, 800);
+  const observer1 = new IntersectionObserver(callback1, options1);
+
+  observer1.observe(document.querySelector(".bg_5_container"));
+
+  const callback2 = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("SECOND OBSERVER");
+        // direction = false;
+        // decreasingColor = "rgba(41, 41, 41, ratio)";
+        document.querySelector(".photo-main").style.display = "block";
+        const padding = window.innerHeight - 169 - 16;
+        console.log(padding);
+        document.querySelector("#bg_5").classList.add("bg_5_active");
+        document.querySelector(".photos").classList.add("photos_active");
+        document.querySelector(".photos_active").style.marginTop = `${-1410}px`;
+        document.querySelector(".item_title_5").style.top = "70px";
+        document.querySelector(".scroll__p").style.color = "transparent";
+
         entry.target.src = entry.target.dataset.src;
         // observer.unobserve(entry.target);
       }
@@ -355,13 +382,81 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const options2 = {
-    rootMargin: "0px 0px 0px 0px",
+    rootMargin: `0px 0px ${0}px 0px`,
     threshold: 0,
   };
 
-  const observer2 = new IntersectionObserver(callback, options2);
+  const observer2 = new IntersectionObserver(callback2, options2);
 
-  observer2.observe(document.querySelector(".bg_5_container"));
+  observer2.observe(document.querySelector(".photo-main"));
+
+  const callback3 = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("THIRD OBSERVER");
+        // observer1.disconnect();
+        observer2.disconnect();
+        // document.querySelector(".photo-main").style.display = "block";
+        // setTimeout(() => {
+        document.querySelector(".item_title_5").style.top = "54px";
+        document.querySelector("#bg_5").classList.remove("bg_5_active");
+        // }, 500);
+        if (document.querySelector(".photos_active")) {
+          document.querySelector(".photos_active").style.transition =
+            "0s ease-out";
+          document.querySelector(".photos_active").style.opacity = "0";
+          document.querySelector(".photos_active").style.marginTop = "0px";
+          document.querySelector(".photos").classList.remove("photos_active");
+        }
+
+        document.querySelector(".scroll__p").style.color = "#ffffff";
+        entry.target.src = entry.target.dataset.src;
+        // observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const options3 = {
+    rootMargin: `0px 0px 0px 0px`,
+    threshold: 0,
+  };
+
+  const observer3 = new IntersectionObserver(callback3, options3);
+
+  const callback4 = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("FOURTH OBSERVER");
+        // observer1.disconnect();
+        observerMain.disconnect();
+        // document.querySelector(".photo-main").style.display = "block";
+        // setTimeout(() => {
+        // document.querySelector(".item_title_5").style.top = "54px";
+        // document.querySelector("#bg_5").classList.remove("bg_5_active");
+        // // }, 500);
+        // document.querySelector(".photos_active").style.transition =
+        //   "0s ease-out";
+        // document.querySelector(".photos_active").style.opacity = "0";
+        // document.querySelector(".photos_active").style.marginTop = "0px";
+        // document.querySelector(".photos").classList.remove("photos_active");
+
+        // document.querySelector(".scroll__p").style.color = "#ffffff";
+        entry.target.src = entry.target.dataset.src;
+        // observer.unobserve(entry.target);
+      } else {
+        observerMain.observe(boxElement);
+        observer3.observe(document.querySelector("#bg_4"));
+      }
+    });
+  };
+
+  const options4 = {
+    rootMargin: `0px 0px 0px 0px`,
+    threshold: 0,
+  };
+
+  const observer4 = new IntersectionObserver(callback4, options4);
+  observer4.observe(document.querySelector(".photo-section"));
 
   document.addEventListener(
     "scrollStart",
