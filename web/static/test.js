@@ -304,19 +304,26 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach((entry) => {
       if (entry.intersectionRatio > prevRatio) {
         // console.log(1 - entry.intersectionRatio);
-        // console.log("start");
-        document.querySelector("#bg_5").style.backgroundColor =
-          decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
+        console.log("start");
+        // document.querySelector("#bg_5").style.opacity = 0;
+        // document.querySelector("#bg_5").style.backgroundColor =
+        //   decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         document.querySelector(".photos").style.backgroundColor =
           decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
+        document.querySelector(".bg_5_active").style.backgroundColor =
+          "transparent";
       } else {
+        // document.querySelector("#bg_5").style.opacity = 0;
         // console.log(entry.intersectionRatio);
-        // console.log("end");
+        console.log("end");
         // console.log(1 - entry.intersectionRatio);
-        document.querySelector("#bg_5").style.backgroundColor =
-          decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
+        // document.querySelector("#bg_5").style.backgroundColor =
+        //   decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         document.querySelector(".photos").style.backgroundColor =
           decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
+        if (document.querySelector(".bg_5_active"))
+          document.querySelector(".bg_5_active").style.backgroundColor =
+            "transparent";
       }
 
       prevRatio = entry.intersectionRatio;
@@ -339,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".photos_active").style.transition =
           "0.5s ease-out";
         document.querySelector(".photos_active").style.opacity = "1";
-        document.querySelector(".photos_active").style.marginTop = `${-1410}px`;
+        document.querySelector(".photos_active").style.marginTop = `${-1422}px`;
         document.querySelector(".item_title_5").style.top = "70px";
         document.querySelector(".scroll__p").style.color = "transparent";
 
@@ -371,7 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(padding);
         document.querySelector("#bg_5").classList.add("bg_5_active");
         document.querySelector(".photos").classList.add("photos_active");
-        document.querySelector(".photos_active").style.marginTop = `${-1410}px`;
+        document.querySelector(".photos_active").style.marginTop = `${-1422}px`;
         document.querySelector(".item_title_5").style.top = "70px";
         document.querySelector(".scroll__p").style.color = "transparent";
 
@@ -396,6 +403,9 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("THIRD OBSERVER");
         // observer1.disconnect();
         observer2.disconnect();
+        // document.querySelector(".bg_5_scroll").style.padding = "28px 44px 0px";
+        if (document.querySelector("#bg_5"))
+          document.querySelector("#bg_5").style.backgroundColor = "#ffffff";
         // document.querySelector(".photo-main").style.display = "block";
         // setTimeout(() => {
         document.querySelector(".item_title_5").style.top = "54px";

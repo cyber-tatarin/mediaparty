@@ -186,6 +186,7 @@ body {
 }
 
 .img-above {
+  z-index: 11;
   margin-top: 20px;
   margin-left: 20px;
   position: absolute;
@@ -376,7 +377,9 @@ body {
 .photos {
   background-color: #292929;
   transition: 0.5s ease-out;
-  padding: 30px 44px 32px;
+  margin-left: 44px;
+  margin-right: 44px;
+  padding: 30px 0px 32px;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -522,7 +525,12 @@ body {
   transition: 0.5s ease-out;
 }
 
+.main__item-scroll {
+  padding: 10px 10px 0px;
+}
+
 .bg_5_active {
+  background-color: transparent;
   transition: 0.5s ease-out;
   height: 1000px;
   padding: 28px 44px 0px;
@@ -530,7 +538,19 @@ body {
   border-radius: 0;
 }
 
+.bg_5_scroll {
+  padding: 28px 44px 24px;
+  margin-top: -28px;
+  margin-left: -44px;
+  margin-right: -44px;
+  border-radius: 0;
+  background-color: #ffffff;
+}
+
 .photos_active {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 30px 44px 32px;
   margin-top: -650px;
   background-color: #ffffff;
 }
