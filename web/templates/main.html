@@ -796,7 +796,8 @@
           />
           <img
             id="last-photo"
-            class="{{ url_for('static', filename='images/photo_4.png') }}"
+            class="photo__item"
+            src="{{ url_for('static', filename='images/photo_4.png') }}"
           />
         </div>
       </main>
@@ -997,7 +998,10 @@
                 </p>
               </div>
             </div>
-            <div class="button__container author__button">
+            <div
+              style="margin-left: 0px; margin-right: 0px"
+              class="button__container author__button"
+            >
               <a id="click" href="#" class="buy-ticket">Купить билет</a>
             </div>
             <p class="author__descriprion">
