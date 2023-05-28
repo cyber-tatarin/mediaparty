@@ -612,11 +612,12 @@ body {
 }
 
 .photo__description_info {
-  font-weight: 600;
   font-size: 12px;
   line-height: 14px;
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 12px;
+  font-style: italic;
+  font-weight: 400;
 }
 
 .text-bottom_left {
