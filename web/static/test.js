@@ -1,29 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const intro = document.querySelector(".scroll-video");
-  const video = document.querySelector(".main-video");
-
-  const controller = new ScrollMagic.Controller();
-
-  let scene = new ScrollMagic.Scene({
-    duration: 6000,
-    triggerElement: intro,
-    triggerHook: 0,
-  })
-    // .enabled(false)
-    .setPin(intro)
-    .addTo(controller);
-
-  // scene.on("update", (e) => {
-  //   console.log(scene.progress());
-  //   scrollpos = e.scrollPos / 1;
-  //   console.log(scene.state());
-  //   // console.log("scroll = ", scrollpos);
-  // });
-
-  setInterval(() => {
-    if (video) video.currentTime = scene.progress() * 3.5;
-  }, 33);
-
   // let scroll = new ScrollyVideo({
   //   scrollyVideoContainer: "scroll-video",
   //   src: "/images/0001-0165.mkv",

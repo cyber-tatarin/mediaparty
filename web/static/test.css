@@ -469,13 +469,13 @@ body {
   padding: 0;
 }
 
-.overflow {
-  position: relative;
-  z-index: 11;
-  background-color: #292929;
-  height: 140px;
-  margin-top: -140px;
-  box-shadow: 0px 4px 20px 8px #292929;
+.overflow-block {
+  position: relative !important;
+  z-index: 11 !important;
+  background-color: #292929 !important;
+  height: 140px !important;
+  margin-top: -140px !important;
+  box-shadow: 0px 4px 20px 8px #292929 !important;
 }
 
 .pop-up__inner_active {
@@ -529,7 +529,7 @@ body {
 
 #bg_5 {
   /* z-index: 5; */
-  transition: 0.5s ease-out;
+  transition: 0.33s ease-out;
 }
 
 .bg_5_animation {
@@ -569,9 +569,9 @@ body {
   background-color: transparent;
   transition: 0.5s ease-out;
   /* height: 1600px; */
-  padding: 10px 44px 28px;
+  padding: 10px 10px 28px;
   margin: 0;
-  border-radius: 0;
+  border-radius: 40px 40px 0px 0px;
 }
 
 .bg_5_scroll {

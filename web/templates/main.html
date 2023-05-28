@@ -97,7 +97,7 @@
                       src="{{ url_for('static', filename='images/statue.png') }}"
                       alt="statue"
                     />
-                    <div class="overflow"></div>
+                    <div class="overflow-block"></div>
                     <div class="swiper swiper-inner swiper-inner_hidden">
                       <div class="swiper-wrapper">
                         <div class="swiper-slide pop-up-description">
@@ -294,21 +294,9 @@
           />
         </div>
       </main>
-      <!-- <div id="scroll-video" class="scroll-video">
-        <video class="main-video" src="/images/0001-0165.mkv"></video>
-      </div> -->
+
       <main class="photo-main">
         <div class="photo-main__container">
-          <!-- <div data-easing="easeOutQuad" id="bg_5_2" class="main__item">
-          <div class="main__item_bg bg_5_2">
-            <img src="/images/bg_5.png" alt="" class="main__item_img" />
-          </div>
-          <div class="main__item_title item_title_5">Дресс-код</div>
-          <div class="main__item_text item_text_5">
-            Разрешены только черные и белые вещи. Можно добавить яркий акцентный
-            цвет с помощью аксессуаров
-          </div>
-        </div> -->
           <section class="photo-section">
             <div class="photo__titles">
               <p class="photo__title_1">Для кого</p>
@@ -388,6 +376,10 @@
           </section>
           <div id="scroll-video" class="scroll-video">
             <video
+              preload="auto"
+              autoplay
+              loop
+              muted
               class="main-video"
               src="{{ url_for('static', filename='images/0001-0165.mkv') }}"
             ></video>
@@ -549,8 +541,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script> -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 
     <script src="{{ url_for('static', filename='test.js') }}"></script>
   </body>
