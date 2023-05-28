@@ -1,4 +1,19 @@
+if (history.scrollRestoration) {
+  history.scrollRestoration = "manual";
+} else {
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+}
+
 window.addEventListener("load", function () {
+  if (history.scrollRestoration) {
+    history.scrollRestoration = "manual";
+  } else {
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+  }
   document.body.scrollTop = document.documentElement.scrollTop = 0;
   window.scrollTo(0, 0);
 

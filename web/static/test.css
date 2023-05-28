@@ -584,8 +584,8 @@ body {
   z-index: 12;
   transition: 0.5s ease-out 0.3s;
   opacity: 0;
-  width: 100px;
-  height: 118px;
+  width: 92px;
+  height: 110px;
 }
 
 .photo-section__img {
@@ -1136,7 +1136,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  padding-top: 284px;
+  padding-top: 276px;
   padding-bottom: calc(100vh - 480px);
 }
 
@@ -1207,7 +1207,7 @@ body {
 }
 
 .swiper-slide-next {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: rgba(255, 255, 255, 0.5);
   font-weight: 700;
   font-size: 11px;
