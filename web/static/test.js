@@ -391,24 +391,16 @@ document.addEventListener("DOMContentLoaded", () => {
         // document.querySelector(".scroll-video").style.display = "block";
 
         let aa = document.querySelector("#bg_5").getBoundingClientRect().height;
-        let height11 = document
-          .querySelector(".photo__item_1")
-          .getBoundingClientRect().height;
-        let height22 = document
-          .querySelector(".photo__item_2")
-          .getBoundingClientRect().height;
-        let height33 = document
-          .querySelector(".photo__item_1")
-          .getBoundingClientRect().height;
-        let height44 = document
-          .querySelector(".photo__item_2")
+
+        let height55 = document
+          .querySelector(".photos")
           .getBoundingClientRect().height;
 
-        document.querySelector(".bg_5_animation").style.boxShadow =
-          "0px 30px 15px -15px rgba(0, 0, 0, 0.6)";
-        let totalHeight2 = aa + 115 + height11 + height22 + height33 + height44;
+        // document.querySelector(".bg_5_animation").style.boxShadow =
+        //   "0px 30px 15px -15px rgba(0, 0, 0, 0.6)";
+        let totalHeight2 = aa + height55;
 
-        console.log(aa, height11, height22, height33, height44, totalHeight2);
+        console.log(aa, height55, totalHeight2);
         document.querySelector(
           ".bg_5_animation"
         ).style.height = `${totalHeight2}px`;
@@ -457,8 +449,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(
           ".bg_5_animation"
         ).style.height = `${totalHeight2}px`;
-        document.querySelector(".bg_5_animation").style.boxShadow =
-          "0px 30px 15px -15px rgba(0, 0, 0, 0.6)";
+        // document.querySelector(".bg_5_animation").style.boxShadow =
+        //   "0px 30px 15px -15px rgba(0, 0, 0, 0.6)";
         document.querySelector(".bg_5_animation").style.borderRadius =
           "40px 40px 0px 0px";
         document.querySelector("#bg_5").classList.add("bg_5_active");
@@ -486,7 +478,7 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         console.log("THIRD OBSERVER");
-        document.querySelector(".bg_5_animation").style.boxShadow = "none";
+        // document.querySelector(".bg_5_animation").style.boxShadow = "none";
         // observer1.disconnect();
         observer2.disconnect();
         // document.querySelector(".bg_5_scroll").style.padding = "28px 44px 0px";
