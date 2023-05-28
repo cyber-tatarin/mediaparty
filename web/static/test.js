@@ -1,4 +1,7 @@
 window.addEventListener("load", function () {
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
+  window.scrollTo(0, 0);
+
   const video = document.querySelector(".main-video");
   video.playbackRate = 0.5;
 
