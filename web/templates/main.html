@@ -54,7 +54,6 @@
             </p>
           </div>
         </div>
-
         <div class="section">
           <div class="arrows">
             <div class="arrow-left"></div>
@@ -67,11 +66,9 @@
           <div class="flex-bottom"></div>
         </div>
       </div>
-
       <div class="button">
         <a href="#" class="buy-ticket">Купить билет</a>
       </div>
-
       <div class="main-swiper">
         <div class="above-screen above-screen_hidden"></div>
         <div class="swiper-wrapper main-wrapper">
@@ -84,14 +81,12 @@
                       <span class="pop-up__title">9 ИЮНЯ 2023</span>
                       <span class="pop-up__title_right">Пятница</span>
                     </div>
-
                     <div class="accents">
                       <div class="accent accent-left">
                         event-пространство Бетон
                       </div>
                       <div class="accent accent-right">20:00 — 00:00</div>
                     </div>
-
                     <img
                       class="statue"
                       src="{{ url_for('static', filename='images/statue.png') }}"
@@ -269,7 +264,6 @@
           </div>
         </div>
         <div class="scroll"></div>
-        <!-- <div class="main__container_bottom"></div> -->
         <div class="photos">
           <img
             class="photo__item photo__item_1"
@@ -375,6 +369,7 @@
             </div>
           </section>
           <div id="scroll-video" class="scroll-video">
+            <div class="colored-block"></div>
             <video
               preload="auto"
               autoplay
@@ -384,6 +379,7 @@
               src="{{ url_for('static', filename='images/0001-0165.mkv') }}"
             ></video>
           </div>
+          <div class="colored-block-revers"></div>
           <div
             style="margin-left: 0px; margin-right: 0px"
             class="button__container button__container_active"
@@ -484,17 +480,36 @@
                 </div>
                 <div class="awards author__inner">
                   <p class="author__info_item">
-                    Приходи к нам на MEDIA PARTY, будет круто :) Мы очень
-                    стараемся сделать так, чтобы все гости расслабились,
-                    кайфанули и ушли с новыми классными знакомыми!
+                    Не забудь сделать креативный анонс мероприятия и придумать
+                    костюм, чтобы побороться за торжественное вручение Премии на
+                    сцене перед 150-ю гостями
                   </p>
                 </div>
                 <div class="awards author__inner">
                   <p class="author__info_item">
-                    Приходи к нам на MEDIA PARTY, будет круто :) Мы очень
-                    стараемся сделать так, чтобы все гости расслабились,
-                    кайфанули и ушли с новыми классными знакомыми!
+                    Покупай свой билет безопасно на kvitki.by — просто нажми на
+                    кнопку ниже :) До встречи 9 июня!
                   </p>
+                </div>
+              </div>
+              <div
+                style="margin-bottom: 16px; margin-top: 24px"
+                class="profile"
+              >
+                <div class="profiles__hr profiles__hr_orange"></div>
+                <div class="profile__content">
+                  <img
+                    src="{{ url_for('static', filename='images/profile_6.png') }}"
+                    alt="photo"
+                    class="profile__img"
+                  />
+                  <div class="">
+                    <p class="profile__nickname">Малашук Вероника</p>
+                    <p class="profile__info">Продюсер</p>
+                    <a class="profile__phone" href="tel:+375297538860"
+                      >+375 (29) 311 - 87 - 38</a
+                    >
+                  </div>
                 </div>
               </div>
               <div
@@ -521,27 +536,7 @@
         </div>
       </main>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <!-- <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.js"
-      integrity="sha512-UgS0SVyy/0fZ0i48Rr7gKpnP+Jio3oC7M4XaKP3BJUB/guN6Zr4BjU0Hsle0ey2HJvPLHE5YQCXTDrx27Lhe7A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"
-      integrity="sha512-5/OHwmQzDSBS0Ous4/hlYoWLHd06/d2r7LdKZQVBXOA6PvOqWVXtdboiLTU7lQTGyVoKVTNkwi0ol4gHGlw5ww=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
-      integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script> -->
-
     <script src="{{ url_for('static', filename='test.js') }}"></script>
   </body>
 </html>
