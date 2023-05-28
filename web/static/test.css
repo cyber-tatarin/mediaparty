@@ -547,18 +547,14 @@ body {
 
 .scroll-video {
   margin-top: 28px;
-  /* display: none !important; */
-  height: 300vh;
+  height: 100vh;
 }
 
 .scroll-video video {
-  height: 100%;
-  width: 100%;
+  margin-left: -44px;
+  width: calc(100% + 88px);
+  height: 100vh;
   object-fit: cover;
-}
-
-.scroll-magic-pin-spacer {
-  display: block;
 }
 
 .main__item-scroll {

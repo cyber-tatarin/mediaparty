@@ -1,11 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const intro = document.querySelector(".scroll-video");
+  const video = document.querySelector(".main-video");
+
+  const controller = new ScrollMagic.Controller();
+
+  let scene = new ScrollMagic.Scene({
+    duration: 6000,
+    triggerElement: intro,
+    triggerHook: 0,
+  })
+    // .enabled(false)
+    .setPin(intro)
+    .addTo(controller);
+
+  // scene.on("update", (e) => {
+  //   console.log(scene.progress());
+  //   scrollpos = e.scrollPos / 1;
+  //   console.log(scene.state());
+  //   // console.log("scroll = ", scrollpos);
+  // });
+
+  setInterval(() => {
+    if (video) video.currentTime = scene.progress() * 3.5;
+  }, 33);
+
   // let scroll = new ScrollyVideo({
   //   scrollyVideoContainer: "scroll-video",
   //   src: "/images/0001-0165.mkv",
-  //   full: true,
+  //   transitionSpeed: 1,
   //   cover: true,
-  //   trackScroll: true,
-  //   useWebCodecs: true,
+  //   full: true,
+  //   sticky: true,
+  //   // full: true,
+  //   // cover: true,
+  //   // trackScroll: true,
+  //   // useWebCodecs: true,
   // });
 
   const swiper = new Swiper(".swiper", {
@@ -327,8 +356,9 @@ document.addEventListener("DOMContentLoaded", () => {
         //   decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         document.querySelector(".photo-main__container").style.backgroundColor =
           decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
-        document.querySelector(".bg_5_active").style.backgroundColor =
-          "transparent";
+        if (document.querySelector(".bg_5_active"))
+          document.querySelector(".bg_5_active").style.backgroundColor =
+            "transparent";
       } else {
         // if (entry.isIntersecting) {
         // console.log("end", entry);
@@ -358,7 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (entry.isIntersecting) {
         console.log("FIRST OBSERVER");
 
-        document.querySelector(".scroll-video").style.display = "block";
+        // document.querySelector(".scroll-video").style.display = "block";
 
         let aa = document.querySelector("#bg_5").getBoundingClientRect().height;
         let height11 = document
@@ -376,8 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.querySelector(".bg_5_animation").style.boxShadow =
           "0px 30px 15px -15px rgba(0, 0, 0, 0.6)";
-        let totalHeight2 =
-          aa + 115.3 + height11 + height22 + height33 + height44;
+        let totalHeight2 = aa + 115 + height11 + height22 + height33 + height44;
 
         console.log(aa, height11, height22, height33, height44, totalHeight2);
         document.querySelector(
@@ -400,7 +429,7 @@ document.addEventListener("DOMContentLoaded", () => {
         observer3.observe(document.querySelector("#party"));
         observerMain.observe(boxElement);
         document.querySelector(".photo-main").style.display = "block";
-        document.querySelector(".scroll-video").style.display = "block";
+        // document.querySelector(".scroll-video").style.display = "block";
       }
     });
   };
