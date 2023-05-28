@@ -1,16 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // let scroll = new ScrollyVideo({
-  //   scrollyVideoContainer: "scroll-video",
-  //   src: "/images/0001-0165.mkv",
-  //   transitionSpeed: 1,
-  //   cover: true,
-  //   full: true,
-  //   sticky: true,
-  //   // full: true,
-  //   // cover: true,
-  //   // trackScroll: true,
-  //   // useWebCodecs: true,
-  // });
+  const video = document.querySelector(".main-video");
+  video.playbackRate = 0.5;
 
   const swiper = new Swiper(".swiper", {
     direction: "vertical",
