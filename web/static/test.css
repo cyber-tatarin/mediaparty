@@ -451,7 +451,7 @@ body {
   z-index: 11 !important;
   background-color: #292929 !important;
   height: 125px !important;
-  margin-top: -120px !important;
+  margin-top: -125px !important;
   box-shadow: 0px 4px 20px 8px #292929 !important;
 }
 
@@ -626,6 +626,7 @@ body {
   line-height: 14px;
   text-align: right;
   color: #ffffff;
+  font-style: italic;
 }
 
 .profile__content {
@@ -674,7 +675,7 @@ body {
 .profile__info {
   font-weight: 500;
   font-size: 12px;
-  line-height: 12px;
+  line-height: 14px;
   color: rgba(255, 255, 255, 0.6);
 }
 
