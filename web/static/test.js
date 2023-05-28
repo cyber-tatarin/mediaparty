@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.onload = function () {
   const video = document.querySelector(".main-video");
   video.playbackRate = 0.5;
 
@@ -22,25 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
     speed: 0,
   });
 
-  let currentSlide = swiper.activeIndex;
-
-  let clientX;
   let clientY;
-
-  let deltaX;
   let deltaY;
-
-  let touch = false;
-
   let isActive = false;
-
   let slideCounter = 0;
-
   let scrollActive = false;
 
   function findTop(element) {
     let rec = document.querySelector(element).getBoundingClientRect();
-
     return rec.top;
   }
 
@@ -50,9 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let scrollCounter = 0;
 
   swiper.on("activeIndexChange", (event) => {
-    // console.log("slideCounter = ", slideCounter);
-    // console.log("swiperActiveSlide = ", swiper.activeIndex);
-
     if (scrollCounter === 0 && slideCounter === 0 && !touchDevice) {
       document.querySelector(".statue").style.transition = "0.5s ease-out 0.3s";
       document.querySelector(".statue").style.opacity = 1;
@@ -86,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document
         .querySelector(".button__container")
         .classList.add("button-return");
-
       document
         .querySelector(".pop-up__inner")
         .classList.add("pop-up__inner_no-radius");
@@ -106,33 +91,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  let touchDelta;
-
   document.addEventListener("touchstart", (event) => {
-    clientX = event.touches[0].clientX;
     clientY = event.touches[0].clientY;
   });
 
   document.addEventListener("touchend", (event) => {
-    deltaX = event.changedTouches[0].clientX - clientX;
     deltaY = event.changedTouches[0].clientY - clientY;
 
     if (deltaY) {
       touch = true;
-      // console.log("touched", swiper.activeIndex, slideCounter);
-
       if (slideCounter === 0) {
       }
     }
 
-    //// TO DOWN
-
     if (deltaY < 0) {
-      // console.log("down", slideCounter, swiper.activeIndex);
       if (
         document.querySelector(".pop-up").classList.contains("pop-up-static")
       ) {
-        // console.log("aaa");
       }
 
       if (slideCounter > 3) {
@@ -181,10 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
       slideCounter++;
     }
 
-    //// TO UP
-
     if (deltaY > 0) {
-      // console.log("up", slideCounter, swiper.activeIndex);
       if (swiper.activeIndex < 3 && slideCounter > 0) {
         if (!swiper.init) swiper.init();
         if (findTop(".main-slide") === 0) {
@@ -198,8 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
           .classList.contains("pop-up_full-screen")
       ) {
         if (slideCounter > 0) slideCounter--;
-        // console.log("destroy");
-
         document
           .querySelector(".pop-up__inner")
           .classList.remove("pop-up__inner_active");
@@ -220,60 +190,8 @@ document.addEventListener("DOMContentLoaded", () => {
           swiper.slidePrev();
         if (slideCounter > 0 && findTop(".main-slide") === 0) slideCounter--;
       }
-
-      // console.log("top = ", findTop("#bg_5"));
-
-      // if (
-      //   document
-      //     .querySelector(".main__container")
-      //     .classList.contains("main__container_full-screen")
-      // ) {
-      //   document.querySelector("#bg_5").style.transform = `translateY(0px)`;
-      //   document.querySelector(".photos").style.transform = `translateY(0px)`;
-      //   const items = document.querySelectorAll(".main__item_to-hide");
-      //   items.forEach((el) => {
-      //     el.style.opacity = 1;
-      //   });
-      // }
     }
   });
-
-  // const options2 = {
-  //   rootMargin: "-20px 0px 0px 0px",
-  //   threshold: 0,
-  // };
-  // const observer2 = new IntersectionObserver((entries, observer2) => {
-  //   entries.forEach((entry) => {
-  //     if (entry.isIntersecting) {
-  //       console.log("SECOND OBSERVER");
-
-  //       const padding = window.innerHeight / 2;
-  //       let scroll2 = new SmoothScroll('a[href*="#"]', {
-  //         speed: 500,
-  //         offset: 20,
-  //         // easing: "easeOutQuad",
-  //       });
-  //       // document.querySelector("body").style.backgroundColor = "#ffffff";
-  //       // document.querySelector("body").style.overflow = "hidden";
-  //       setTimeout(() => {
-  //         scroll2.animateScroll(document.querySelector(".main__container"));
-
-  //         document
-  //           .querySelector(".photos")
-  //           .classList.remove("photos_full-screen");
-  //         document
-  //           .querySelector(".main__container")
-  //           .classList.remove("main__container_full-screen");
-  //         // document.querySelector("body").style.overflow = "visible";
-  //       }, 100);
-  //       entry.target.src = entry.target.dataset.src;
-  //       observer2.unobserve(entry.target);
-  //       setTimeout(() => {
-  //         observer.observe(bg5);
-  //       }, 800);
-  //     }
-  //   });
-  // }, options2);
 
   let boxElement = document.querySelector("#last-photo");
   let prevRatio = 0.0;
@@ -306,42 +224,21 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleIntersect(entries, observer) {
     entries.forEach((entry) => {
       if (entry.intersectionRatio > prevRatio) {
-        // console.log(1 - entry.intersectionRatio);
-        console.log("start");
-
-        // console.log(totalHeight);
-
-        // if (1 - entry.intersectionRatio > 0.8)
-        // document.querySelector("#bg_5").style.opacity = 0;
-        // document.querySelector("#bg_5").style.backgroundColor =
-        //   decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         document.querySelector(".bg_5_animation").style.backgroundColor =
           decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
-        // document.querySelector(".photos").style.backgroundColor =
-        //   decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         document.querySelector(".photo-main__container").style.backgroundColor =
           decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         if (document.querySelector(".bg_5_active"))
           document.querySelector(".bg_5_active").style.backgroundColor =
             "transparent";
       } else {
-        // if (entry.isIntersecting) {
-        // console.log("end", entry);
-        // console.log(1 - entry.intersectionRatio);
-        // document.querySelector("#bg_5").style.backgroundColor =
-        //   decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         document.querySelector(".bg_5_animation").style.backgroundColor =
           decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
-        // document.querySelector(".photos").style.backgroundColor =
-        //   decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         document.querySelector(".photo-main__container").style.backgroundColor =
           decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         if (document.querySelector(".bg_5_active"))
           document.querySelector(".bg_5_active").style.backgroundColor =
             "transparent";
-        // }
-        // document.querySelector("#bg_5").style.opacity = 0;
-        // console.log(entry.intersectionRatio);
       }
 
       prevRatio = entry.intersectionRatio;
@@ -351,42 +248,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const callback1 = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log("FIRST OBSERVER");
-
-        // document.querySelector(".scroll-video").style.display = "block";
-
         let aa = document.querySelector("#bg_5").getBoundingClientRect().height;
 
         let height55 = document
           .querySelector(".photos")
           .getBoundingClientRect().height;
 
-        // document.querySelector(".bg_5_animation").style.boxShadow =
-        //   "0px 30px 15px -15px rgba(0, 0, 0, 0.6)";
         let totalHeight2 = aa + height55;
 
-        console.log(aa, height55, totalHeight2);
         document.querySelector(
           ".bg_5_animation"
         ).style.height = `${totalHeight2}px`;
-        document.querySelector(".item_text_5").style.paddingLeft = "20px";
-        document.querySelector(".item_text_5").style.paddingRight = "20px";
-
+        document.querySelector(".item_text_5").style.paddingLeft = "54px";
+        document.querySelector(".item_text_5").style.paddingRight = "54px";
         document.querySelector(".bg_5_animation").style.borderRadius =
           "40px 40px 0px 0px";
         document.querySelector("#bg_5").classList.add("bg_5_active");
         document.querySelector(".photos").classList.add("photos_active");
         document.querySelector(".photos_active").style.transition =
           "0.5s ease-out";
-        // document.querySelector(".photos_active").style.opacity = "1";
         document.querySelector(".photos_active").style.marginTop = `-100vh`;
-
-        // if (document.querySelector(".photos_active"))
-
         observer3.observe(document.querySelector("#party"));
         observerMain.observe(boxElement);
         document.querySelector(".photo-main").style.display = "block";
-        // document.querySelector(".scroll-video").style.display = "block";
       }
     });
   };
@@ -405,27 +289,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const callback2 = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log("SECOND OBSERVER");
-        // direction = false;
-        // decreasingColor = "rgba(41, 41, 41, ratio)";
         document.querySelector(".photo-main").style.display = "block";
-        const padding = window.innerHeight - 169 - 16;
-        // console.log(padding);
         document.querySelector(
           ".bg_5_animation"
         ).style.height = `${totalHeight2}px`;
-        // document.querySelector(".bg_5_animation").style.boxShadow =
-        //   "0px 30px 15px -15px rgba(0, 0, 0, 0.6)";
         document.querySelector(".bg_5_animation").style.borderRadius =
           "40px 40px 0px 0px";
         document.querySelector("#bg_5").classList.add("bg_5_active");
         document.querySelector(".photos").classList.add("photos_active");
         document.querySelector(".photos_active").style.marginTop = `-100vh`;
-        // document.querySelector(".item_title_5").style.top = "62px";
-        // document.querySelector(".scroll__p").style.color = "transparent";
-
-        // entry.target.src = entry.target.dataset.src;
-        // observer.unobserve(entry.target);
       }
     });
   };
@@ -442,33 +314,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const callback3 = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log("THIRD OBSERVER");
-        // document.querySelector(".bg_5_animation").style.boxShadow = "none";
-        // observer1.disconnect();
         observer2.disconnect();
-        // document.querySelector(".bg_5_scroll").style.padding = "28px 44px 0px";
         if (document.querySelector("#bg_5"))
           document.querySelector("#bg_5").style.backgroundColor = "#ffffff";
-        // document.querySelector(".photo-main").style.display = "block";
-        // setTimeout(() => {
-        // document.querySelector(".item_title_5").style.top = "54px";
         document.querySelector("#bg_5").classList.remove("bg_5_active");
         document.querySelector(".item_text_5").style.paddingLeft = "10px";
         document.querySelector(".item_text_5").style.paddingRight = "10px";
-        // }, 500);
         if (document.querySelector(".photos_active")) {
-          // document.querySelector(".photos_active").style.transition =
-          //   "0s ease-out";
-          // document.querySelector(".photos_active").style.opacity = "0";
           document.querySelector(".photos_active").style.marginTop = "0px";
           document.querySelector(".bg_5_animation").style.height = "100px";
           document.querySelector(".bg_5_animation").style.borderRadius = "40px";
           document.querySelector(".photos").classList.remove("photos_active");
         }
-
-        // document.querySelector(".scroll__p").style.color = "#ffffff";
-        // entry.target.src = entry.target.dataset.src;
-        // observer.unobserve(entry.target);
       }
     });
   };
@@ -484,22 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         console.log("FOURTH OBSERVER");
-        // observer1.disconnect();
         observerMain.disconnect();
-        // document.querySelector(".photo-main").style.display = "block";
-        // setTimeout(() => {
-        // document.querySelector(".item_title_5").style.top = "54px";
-        // document.querySelector("#bg_5").classList.remove("bg_5_active");
-        // // }, 500);
-        // document.querySelector(".photos_active").style.transition =
-        //   "0s ease-out";
-        // document.querySelector(".photos_active").style.opacity = "0";
-        // document.querySelector(".photos_active").style.marginTop = "0px";
-        // document.querySelector(".photos").classList.remove("photos_active");
-
-        // document.querySelector(".scroll__p").style.color = "#ffffff";
-        // entry.target.src = entry.target.dataset.src;
-        // observer.unobserve(entry.target);
       } else {
         observerMain.observe(boxElement);
         observer3.observe(document.querySelector("#party"));
@@ -529,45 +371,4 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     false
   );
-});
-
-// const intro = document.querySelector(".scroll-video");
-// const video = document.querySelector(".main-video");
-
-// const controller = new ScrollMagic.Controller();
-
-// let scene = new ScrollMagic.Scene({
-//   duration: 3000,
-//   triggerElement: intro,
-//   triggerHook: 0,
-// })
-//   .setPin(intro)
-//   .addTo(controller);
-
-// let accelamount = 0.1;
-// let scrollpos = 0;
-// let delay = 0;
-
-// scene.on("update", (e) => {
-//   scrollpos = e.scrollPos / 1000;
-//   console.log("scroll = ", scrollpos);
-// });
-
-// setInterval(() => {
-//   delay += (scrollpos - delay) * accelamount;
-//   video.currentTime = scrollpos;
-// }, 33);
-// let video = document.querySelector(".main-video");
-// var playPromise = video.play();
-
-// if (playPromise !== undefined) {
-//   playPromise
-//     .then((_) => {
-//       // Automatic playback started!
-//       // Show playing UI.
-//     })
-//     .catch((error) => {
-//       // Auto-play was prevented
-//       // Show paused UI.
-//     });
-// }
+};
