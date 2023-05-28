@@ -547,6 +547,7 @@ body {
 
 .scroll-video {
   margin-top: 28px;
+  /* display: none !important; */
   height: 100vh;
 }
 
@@ -554,6 +555,7 @@ body {
   margin-left: -44px;
   width: calc(100% + 88px);
   height: 100vh;
+  /* width: 100%; */
   object-fit: cover;
 }
 
