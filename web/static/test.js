@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener("load", function () {
   const video = document.querySelector(".main-video");
   video.playbackRate = 0.5;
 
@@ -371,4 +371,4 @@ window.onload = function () {
     },
     false
   );
-};
+});
