@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // let scroll = new ScrollyVideo({
+  //   scrollyVideoContainer: "scroll-video",
+  //   src: "/images/0001-0165.mkv",
+  //   full: true,
+  //   cover: true,
+  //   trackScroll: true,
+  //   useWebCodecs: true,
+  // });
+
   const swiper = new Swiper(".swiper", {
     direction: "vertical",
     mousewheel: {
@@ -289,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function buildThresholdList() {
     let thresholds = [];
-    let numSteps = 20;
+    let numSteps = 100;
 
     for (let i = 1.0; i <= numSteps; i++) {
       let ratio = i / numSteps;
@@ -305,25 +314,39 @@ document.addEventListener("DOMContentLoaded", () => {
       if (entry.intersectionRatio > prevRatio) {
         // console.log(1 - entry.intersectionRatio);
         console.log("start");
+
+        // console.log(totalHeight);
+
+        // if (1 - entry.intersectionRatio > 0.8)
         // document.querySelector("#bg_5").style.opacity = 0;
         // document.querySelector("#bg_5").style.backgroundColor =
         //   decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
-        document.querySelector(".photos").style.backgroundColor =
+        document.querySelector(".bg_5_animation").style.backgroundColor =
+          decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
+        // document.querySelector(".photos").style.backgroundColor =
+        //   decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
+        document.querySelector(".photo-main__container").style.backgroundColor =
           decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         document.querySelector(".bg_5_active").style.backgroundColor =
           "transparent";
       } else {
-        // document.querySelector("#bg_5").style.opacity = 0;
-        // console.log(entry.intersectionRatio);
-        console.log("end");
+        // if (entry.isIntersecting) {
+        // console.log("end", entry);
         // console.log(1 - entry.intersectionRatio);
         // document.querySelector("#bg_5").style.backgroundColor =
         //   decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
-        document.querySelector(".photos").style.backgroundColor =
+        document.querySelector(".bg_5_animation").style.backgroundColor =
+          decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
+        // document.querySelector(".photos").style.backgroundColor =
+        //   decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
+        document.querySelector(".photo-main__container").style.backgroundColor =
           decreasingColor.replace("ratio", 1 - entry.intersectionRatio);
         if (document.querySelector(".bg_5_active"))
           document.querySelector(".bg_5_active").style.backgroundColor =
             "transparent";
+        // }
+        // document.querySelector("#bg_5").style.opacity = 0;
+        // console.log(entry.intersectionRatio);
       }
 
       prevRatio = entry.intersectionRatio;
@@ -334,24 +357,50 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         console.log("FIRST OBSERVER");
-        // if (document.querySelector(".photos_active"))
 
-        observer3.observe(document.querySelector("#bg_4"));
-        observerMain.observe(boxElement);
-        document.querySelector(".photo-main").style.display = "block";
-        const padding = window.innerHeight - 169 - 16;
-        console.log(padding);
+        document.querySelector(".scroll-video").style.display = "block";
+
+        let aa = document.querySelector("#bg_5").getBoundingClientRect().height;
+        let height11 = document
+          .querySelector(".photo__item_1")
+          .getBoundingClientRect().height;
+        let height22 = document
+          .querySelector(".photo__item_2")
+          .getBoundingClientRect().height;
+        let height33 = document
+          .querySelector(".photo__item_1")
+          .getBoundingClientRect().height;
+        let height44 = document
+          .querySelector(".photo__item_2")
+          .getBoundingClientRect().height;
+
+        document.querySelector(".bg_5_animation").style.boxShadow =
+          "0px 30px 15px -15px rgba(0, 0, 0, 0.6)";
+        let totalHeight2 =
+          aa + 115.3 + height11 + height22 + height33 + height44;
+
+        console.log(aa, height11, height22, height33, height44, totalHeight2);
+        document.querySelector(
+          ".bg_5_animation"
+        ).style.height = `${totalHeight2}px`;
+        document.querySelector(".item_text_5").style.paddingLeft = "20px";
+        document.querySelector(".item_text_5").style.paddingRight = "20px";
+
+        document.querySelector(".bg_5_animation").style.borderRadius =
+          "40px 40px 0px 0px";
         document.querySelector("#bg_5").classList.add("bg_5_active");
         document.querySelector(".photos").classList.add("photos_active");
         document.querySelector(".photos_active").style.transition =
           "0.5s ease-out";
-        document.querySelector(".photos_active").style.opacity = "1";
-        document.querySelector(".photos_active").style.marginTop = `${-1422}px`;
-        document.querySelector(".item_title_5").style.top = "70px";
-        document.querySelector(".scroll__p").style.color = "transparent";
+        // document.querySelector(".photos_active").style.opacity = "1";
+        document.querySelector(".photos_active").style.marginTop = `-100vh`;
 
-        entry.target.src = entry.target.dataset.src;
-        // observer.unobserve(entry.target);
+        // if (document.querySelector(".photos_active"))
+
+        observer3.observe(document.querySelector("#party"));
+        observerMain.observe(boxElement);
+        document.querySelector(".photo-main").style.display = "block";
+        document.querySelector(".scroll-video").style.display = "block";
       }
     });
   };
@@ -365,7 +414,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const observer1 = new IntersectionObserver(callback1, options1);
 
-  observer1.observe(document.querySelector(".bg_5_container"));
+  observer1.observe(document.querySelector("#bg_4"));
 
   const callback2 = (entries, observer) => {
     entries.forEach((entry) => {
@@ -375,14 +424,21 @@ document.addEventListener("DOMContentLoaded", () => {
         // decreasingColor = "rgba(41, 41, 41, ratio)";
         document.querySelector(".photo-main").style.display = "block";
         const padding = window.innerHeight - 169 - 16;
-        console.log(padding);
+        // console.log(padding);
+        document.querySelector(
+          ".bg_5_animation"
+        ).style.height = `${totalHeight2}px`;
+        document.querySelector(".bg_5_animation").style.boxShadow =
+          "0px 30px 15px -15px rgba(0, 0, 0, 0.6)";
+        document.querySelector(".bg_5_animation").style.borderRadius =
+          "40px 40px 0px 0px";
         document.querySelector("#bg_5").classList.add("bg_5_active");
         document.querySelector(".photos").classList.add("photos_active");
-        document.querySelector(".photos_active").style.marginTop = `${-1422}px`;
-        document.querySelector(".item_title_5").style.top = "70px";
-        document.querySelector(".scroll__p").style.color = "transparent";
+        document.querySelector(".photos_active").style.marginTop = `-100vh`;
+        // document.querySelector(".item_title_5").style.top = "62px";
+        // document.querySelector(".scroll__p").style.color = "transparent";
 
-        entry.target.src = entry.target.dataset.src;
+        // entry.target.src = entry.target.dataset.src;
         // observer.unobserve(entry.target);
       }
     });
@@ -401,6 +457,7 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         console.log("THIRD OBSERVER");
+        document.querySelector(".bg_5_animation").style.boxShadow = "none";
         // observer1.disconnect();
         observer2.disconnect();
         // document.querySelector(".bg_5_scroll").style.padding = "28px 44px 0px";
@@ -408,19 +465,23 @@ document.addEventListener("DOMContentLoaded", () => {
           document.querySelector("#bg_5").style.backgroundColor = "#ffffff";
         // document.querySelector(".photo-main").style.display = "block";
         // setTimeout(() => {
-        document.querySelector(".item_title_5").style.top = "54px";
+        // document.querySelector(".item_title_5").style.top = "54px";
         document.querySelector("#bg_5").classList.remove("bg_5_active");
+        document.querySelector(".item_text_5").style.paddingLeft = "10px";
+        document.querySelector(".item_text_5").style.paddingRight = "10px";
         // }, 500);
         if (document.querySelector(".photos_active")) {
-          document.querySelector(".photos_active").style.transition =
-            "0s ease-out";
-          document.querySelector(".photos_active").style.opacity = "0";
+          // document.querySelector(".photos_active").style.transition =
+          //   "0s ease-out";
+          // document.querySelector(".photos_active").style.opacity = "0";
           document.querySelector(".photos_active").style.marginTop = "0px";
+          document.querySelector(".bg_5_animation").style.height = "100px";
+          document.querySelector(".bg_5_animation").style.borderRadius = "40px";
           document.querySelector(".photos").classList.remove("photos_active");
         }
 
-        document.querySelector(".scroll__p").style.color = "#ffffff";
-        entry.target.src = entry.target.dataset.src;
+        // document.querySelector(".scroll__p").style.color = "#ffffff";
+        // entry.target.src = entry.target.dataset.src;
         // observer.unobserve(entry.target);
       }
     });
@@ -451,17 +512,17 @@ document.addEventListener("DOMContentLoaded", () => {
         // document.querySelector(".photos").classList.remove("photos_active");
 
         // document.querySelector(".scroll__p").style.color = "#ffffff";
-        entry.target.src = entry.target.dataset.src;
+        // entry.target.src = entry.target.dataset.src;
         // observer.unobserve(entry.target);
       } else {
         observerMain.observe(boxElement);
-        observer3.observe(document.querySelector("#bg_4"));
+        observer3.observe(document.querySelector("#party"));
       }
     });
   };
 
   const options4 = {
-    rootMargin: `0px 0px 0px 0px`,
+    rootMargin: `10000px 0px 0px 0px`,
     threshold: 0,
   };
 
@@ -482,18 +543,45 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     false
   );
-
-  // function doScroll(e) {
-  //   // positive deltas are top and left
-  //   // down and right are negative
-
-  //   // horizontal offset    e.deltaX
-  //   // vertical offset      e.deltaY
-
-  //   console.log(`x:${e.deltaX} y:${e.deltaY}`);
-
-  //   e.preventDefault(); // disable the actual scrolling
-  // }
-
-  // window.addEventListener("wheel", doScroll, false);
 });
+
+// const intro = document.querySelector(".scroll-video");
+// const video = document.querySelector(".main-video");
+
+// const controller = new ScrollMagic.Controller();
+
+// let scene = new ScrollMagic.Scene({
+//   duration: 3000,
+//   triggerElement: intro,
+//   triggerHook: 0,
+// })
+//   .setPin(intro)
+//   .addTo(controller);
+
+// let accelamount = 0.1;
+// let scrollpos = 0;
+// let delay = 0;
+
+// scene.on("update", (e) => {
+//   scrollpos = e.scrollPos / 1000;
+//   console.log("scroll = ", scrollpos);
+// });
+
+// setInterval(() => {
+//   delay += (scrollpos - delay) * accelamount;
+//   video.currentTime = scrollpos;
+// }, 33);
+// let video = document.querySelector(".main-video");
+// var playPromise = video.play();
+
+// if (playPromise !== undefined) {
+//   playPromise
+//     .then((_) => {
+//       // Automatic playback started!
+//       // Show playing UI.
+//     })
+//     .catch((error) => {
+//       // Auto-play was prevented
+//       // Show paused UI.
+//     });
+// }
