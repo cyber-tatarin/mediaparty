@@ -7308,7 +7308,7 @@ window.addEventListener("load", function () {
 
   let t = new ScrollyVideo({
     scrollyVideoContainer: "scroll-video",
-    src: "/static/images/video.mp4",
+    src: "https://scrollyvideo.js.org/goldengate.mp4",
     cover: true,
     sticky: true,
     full: true,
