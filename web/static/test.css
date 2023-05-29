@@ -539,18 +539,17 @@ body {
   /* margin-top: 28px; */
 }
 
-canvas {
-  /* height: auto !important;
-  width: 100% !important; */
-}
-
 .scroll-video video {
-  /* display: none !important; */
   display: block;
   background-color: #242525;
   width: calc(100% + 88px);
   height: 100vh;
   object-fit: cover;
+}
+
+canvas {
+  height: auto !important;
+  width: 100% !important;
 }
 
 .main__item-scroll {
