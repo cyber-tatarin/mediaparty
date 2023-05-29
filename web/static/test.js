@@ -40,7 +40,7 @@ window.addEventListener("load", function () {
 
   setInterval(() => {
     if (video) video.currentTime = scene.progress() * 2.8;
-  }, 20);
+  }, 100);
 
   const swiper = new Swiper(".swiper", {
     direction: "vertical",
