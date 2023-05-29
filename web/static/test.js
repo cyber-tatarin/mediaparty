@@ -28,26 +28,26 @@ window.addEventListener("load", function () {
     full: true,
   });
 
-  const list = document.querySelector(".scroll-video");
-  // list.removeChild(document.querySelector("video"));
+  // const list = document.querySelector(".scroll-video");
+  // // list.removeChild(document.querySelector("video"));
 
-  list.insertAdjacentHTML(
-    "beforeend",
-    `<canvas
-                width="1080"
-                height="1920"
-                style="
-                  position: absolute;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%, -50%);
-                  min-width: 101%;
-                  min-height: 101%;
-                  height: auto;
-                  width: 100%;
-                "
-              ></canvas>`
-  );
+  // list.insertAdjacentHTML(
+  //   "beforeend",
+  //   `<canvas
+  //               width="1080"
+  //               height="1920"
+  //               style="
+  //                 position: absolute;
+  //                 top: 50%;
+  //                 left: 50%;
+  //                 transform: translate(-50%, -50%);
+  //                 min-width: 101%;
+  //                 min-height: 101%;
+  //                 height: auto;
+  //                 width: 100%;
+  //               "
+  //             ></canvas>`
+  // );
 
   const swiper = new Swiper(".swiper", {
     direction: "vertical",
