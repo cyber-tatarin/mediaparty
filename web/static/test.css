@@ -547,11 +547,6 @@ body {
   object-fit: cover;
 }
 
-canvas {
-  height: auto !important;
-  width: 100% !important;
-}
-
 .main__item-scroll {
   border-radius: 40px;
   overflow: visible;
