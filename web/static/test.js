@@ -29,7 +29,7 @@ window.addEventListener("load", function () {
   });
 
   const list = document.querySelector(".scroll-video");
-  list.removeChild(document.querySelector("video"));
+  // list.removeChild(document.querySelector("video"));
 
   list.insertAdjacentHTML(
     "beforeend",
