@@ -26,7 +26,6 @@ window.addEventListener("load", function () {
     cover: true,
     sticky: true,
     full: true,
-    transitionSpeed: 0.1,
   });
 
   const swiper = new Swiper(".swiper", {
