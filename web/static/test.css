@@ -539,6 +539,11 @@ body {
   /* margin-top: 28px; */
 }
 
+canvas {
+  height: auto !important;
+  width: 100% !important;
+}
+
 .scroll-video video {
   display: block;
   background-color: #242525;
