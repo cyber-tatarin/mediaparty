@@ -23,13 +23,10 @@ window.addEventListener("load", function () {
   let t = new ScrollyVideo({
     scrollyVideoContainer: "scroll-video",
     src: "/static/images/video.mp4",
-    // cover: true,
+    cover: true,
     sticky: true,
-    // full: true,
-
-    transitionSpeed: 1,
-    frameThreshold: 0.1,
-    useWebCodecs: true,
+    full: true,
+    transitionSpeed: 8,
   });
 
   const swiper = new Swiper(".swiper", {
