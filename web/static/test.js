@@ -39,7 +39,7 @@ window.addEventListener("load", function () {
     .addTo(controller);
 
   setInterval(() => {
-    if (video) video.currentTime = scene.progress() * 3.5;
+    if (video) video.currentTime = scene.progress() * 2.9;
   }, 20);
 
   const swiper = new Swiper(".swiper", {
