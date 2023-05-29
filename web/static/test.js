@@ -35,7 +35,7 @@ window.addEventListener("load", function () {
     .addTo(controller);
 
   setInterval(() => {
-    video.currentTime = +(scene.progress() * 2.7).toFixed(2);
+    video.currentTime = +(scene.progress() * 2.25).toFixed(2);
   }, 33.3);
 
   const swiper = new Swiper(".swiper", {
