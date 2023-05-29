@@ -540,7 +540,8 @@ body {
   background-color: #242525;
   margin-left: -44px;
   width: calc(100% + 88px);
-  object-fit: contain;
+  height: 100vh;
+  object-fit: cover;
 }
 
 .main__item-scroll {
