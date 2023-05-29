@@ -545,6 +545,7 @@ canvas {
 }
 
 .scroll-video video {
+  display: none !important;
   display: block;
   background-color: #242525;
   width: calc(100% + 88px);
