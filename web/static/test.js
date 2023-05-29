@@ -25,12 +25,8 @@ window.addEventListener("load", function () {
 
   const controller = new ScrollMagic.Controller();
 
-  let dur = 4000;
-
-  if (touchDevice) dur = 2000;
-
   let scene = new ScrollMagic.Scene({
-    duration: dur,
+    duration: 2000,
     triggerElement: intro,
     triggerHook: 0,
   })
