@@ -540,12 +540,12 @@ body {
 }
 
 canvas {
-  height: auto !important;
-  width: 100% !important;
+  /* height: auto !important;
+  width: 100% !important; */
 }
 
 .scroll-video video {
-  display: none !important;
+  /* display: none !important; */
   display: block;
   background-color: #242525;
   width: calc(100% + 88px);
