@@ -26,6 +26,7 @@ window.addEventListener("load", function () {
     cover: true,
     sticky: true,
     full: true,
+    debug: true,
   });
 
   // const list = document.querySelector(".scroll-video");
