@@ -17,6 +17,9 @@ window.addEventListener("load", function () {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
   window.scrollTo(0, 0);
 
+  let touchDevice =
+    navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
+
   let t = new ScrollyVideo({
     scrollyVideoContainer: "scroll-video",
     src: "/images/video.mp4",
