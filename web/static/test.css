@@ -532,9 +532,9 @@ body {
 }
 
 .scroll-video {
-  width: calc(100vw);
-  margin-left: -44px;
-  margin-bottom: 1750px;
+  width: calc(100vw) !important;
+  margin-left: -44px !important;
+  margin-bottom: 1750px !important;
   /* margin-top: 28px; */
 }
 

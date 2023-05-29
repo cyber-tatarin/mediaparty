@@ -17,6 +17,8 @@ window.addEventListener("load", function () {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
   window.scrollTo(0, 0);
 
+  document.querySelector(".main-video").playbackRate = 0.01;
+
   let touchDevice =
     navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
 
