@@ -39,8 +39,9 @@ window.addEventListener("load", function () {
     .addTo(controller);
 
   setInterval(() => {
+    console.log(scene.progress() * 2.8);
     if (video) video.currentTime = scene.progress() * 2.8;
-  }, 100);
+  }, 1);
 
   const swiper = new Swiper(".swiper", {
     direction: "vertical",
