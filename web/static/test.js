@@ -17,8 +17,6 @@ window.addEventListener("load", function () {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
   window.scrollTo(0, 0);
 
-  document.querySelector("video").playbackRate = 0.01;
-
   let touchDevice =
     navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
 
@@ -30,6 +28,8 @@ window.addEventListener("load", function () {
     full: true,
     transitionSpeed: 0.1,
   });
+
+  document.querySelector("video").playbackRate = 0.25;
 
   const swiper = new Swiper(".swiper", {
     direction: "vertical",
