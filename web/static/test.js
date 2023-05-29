@@ -17,26 +17,17 @@ window.addEventListener("load", function () {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
   window.scrollTo(0, 0);
 
-  let touchDevice =
-    navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
+  let t = new ScrollyVideo({
+    scrollyVideoContainer: "scroll-video",
+    src: "/images/video.mp4",
+    // cover: true,
+    sticky: true,
+    // full: true,
 
-  const intro = document.querySelector(".scroll-video");
-  const video = document.querySelector(".main-video");
-
-  const controller = new ScrollMagic.Controller();
-
-  let scene = new ScrollMagic.Scene({
-    duration: 2000,
-    triggerElement: intro,
-    triggerHook: 0,
-  })
-
-    .setPin(intro)
-    .addTo(controller);
-
-  setInterval(() => {
-    video.currentTime = +(scene.progress() * 2.25).toFixed(2);
-  }, 100);
+    transitionSpeed: 1,
+    frameThreshold: 0.1,
+    useWebCodecs: true,
+  });
 
   const swiper = new Swiper(".swiper", {
     direction: "vertical",
