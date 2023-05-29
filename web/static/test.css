@@ -519,7 +519,7 @@ body {
   max-width: 600px;
   width: 100vw;
   margin-left: -44px;
-  height: 48px;
+  height: 76px;
   background: linear-gradient(#292929, #242525);
 }
 
@@ -532,7 +532,7 @@ body {
 }
 
 .scroll-video {
-  margin-top: 28px;
+  /* margin-top: 28px; */
 }
 
 .scroll-video video {

@@ -17,8 +17,30 @@ window.addEventListener("load", function () {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
   window.scrollTo(0, 0);
 
+  let touchDevice =
+    navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
+
+  const intro = document.querySelector(".scroll-video");
   const video = document.querySelector(".main-video");
-  video.playbackRate = 0.5;
+
+  const controller = new ScrollMagic.Controller();
+
+  let dur = 4000;
+
+  if (touchDevice) dur = 2000;
+
+  let scene = new ScrollMagic.Scene({
+    duration: dur,
+    triggerElement: intro,
+    triggerHook: 0,
+  })
+
+    .setPin(intro)
+    .addTo(controller);
+
+  setInterval(() => {
+    if (video) video.currentTime = scene.progress() * 3.5;
+  }, 20);
 
   const swiper = new Swiper(".swiper", {
     direction: "vertical",
@@ -50,9 +72,6 @@ window.addEventListener("load", function () {
     let rec = document.querySelector(element).getBoundingClientRect();
     return rec.top;
   }
-
-  var touchDevice =
-    navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
 
   let scrollCounter = 0;
 
