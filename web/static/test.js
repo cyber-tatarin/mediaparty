@@ -29,8 +29,6 @@ window.addEventListener("load", function () {
     transitionSpeed: 0.1,
   });
 
-  document.querySelector("video").playbackRate = 0.25;
-
   const swiper = new Swiper(".swiper", {
     direction: "vertical",
     mousewheel: {
