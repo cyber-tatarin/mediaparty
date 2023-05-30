@@ -25,6 +25,10 @@ window.addEventListener("load", function () {
 
   const controller = new ScrollMagic.Controller();
 
+  let dur = 4000;
+
+  if (touchDevice) dur = 2000;
+
   let scene = new ScrollMagic.Scene({
     duration: 2000,
     triggerElement: intro,
@@ -35,8 +39,8 @@ window.addEventListener("load", function () {
     .addTo(controller);
 
   setInterval(() => {
-    video.currentTime = +(scene.progress() * 2.8).toFixed(2);
-  }, 33.3);
+    video.currentTime = +(scene.progress() * 2.25).toFixed(2);
+  }, 100);
 
   // const list = document.querySelector(".scroll-video");
   // // list.removeChild(document.querySelector("video"));
