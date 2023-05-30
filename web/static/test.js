@@ -7308,7 +7308,7 @@ window.addEventListener("load", function () {
 
   let t = new ScrollyVideo({
     scrollyVideoContainer: "scroll-video",
-    src: "/static/images/video.pm4",
+    src: "/static/images/video.mp4",
     cover: true,
     sticky: true,
     full: true,
