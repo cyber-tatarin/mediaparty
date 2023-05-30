@@ -542,9 +542,11 @@ body {
 .scroll-video video {
   display: block;
   background-color: #242525;
-  width: calc(100% + 88px);
+  width: 100vw;
   height: 100vh;
+  max-width: 600px;
   object-fit: cover;
+  margin-left: 44px;
 }
 
 .main__item-scroll {
